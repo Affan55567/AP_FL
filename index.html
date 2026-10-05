@@ -1,9 +1,21 @@
-```html
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AP_FL.com</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Prism.js -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-markup.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-css.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-clike.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-java.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-cpp.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
 
     <style>
         * {
@@ -12,210 +24,330 @@
             padding: 0;
         }
 
-        :root {
-            color-scheme: dark;
-            --page-bg: #0b0b0c;
-            --surface: #151516;
-            --surface-raised: #1c1c1e;
-            --text: #f5f5f5;
-            --muted: #a4a4a8;
-            --line: rgba(255, 255, 255, 0.12);
-            --radius: 20px;
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
-            min-width: 320px;
-            background:
-                radial-gradient(ellipse at 50% -15%, #29292c 0%, transparent 48%),
-                var(--page-bg);
-            color: var(--text);
-            font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: #111111;
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
             line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
         }
 
         .container {
-            width: min(100% - 48px, 1080px);
-            margin-inline: auto;
+            width: 90%;
+            max-width: 1150px;
+            margin: auto;
         }
 
+        /* NAVBAR */
         header {
-            padding: 34px 0;
-            border-bottom: 1px solid var(--line);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(17, 17, 17, 0.94);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid #333;
         }
 
-        header h1 {
-            font-size: clamp(1.6rem, 3vw, 2rem);
-            font-weight: 700;
-            letter-spacing: -0.055em;
-            line-height: 1.2;
+        .topbar {
+            min-height: 78px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
         }
 
-        header p {
-            margin-top: 7px;
-            color: var(--muted);
-            font-size: 0.94rem;
+        .logo {
+            font-size: 28px;
+            font-weight: 900;
         }
 
-        section {
-            margin-block: clamp(38px, 7vw, 72px);
+        nav {
+            display: flex;
+            gap: 24px;
         }
 
-        .box {
-            padding: clamp(26px, 5vw, 48px);
-            border: 1px solid rgba(255, 255, 255, 0.76);
-            border-radius: var(--radius);
-            margin-bottom: 24px;
-            background: linear-gradient(145deg, #fff 0%, #e9e9eb 100%);
-            color: #101011;
-            box-shadow:
-                0 24px 70px rgba(0, 0, 0, 0.32),
-                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+        nav a {
+            color: #cfcfcf;
+            transition: 0.2s;
         }
 
-        .dark-box {
-            border-color: var(--line);
-            background: linear-gradient(145deg, #1b1b1d 0%, #111112 100%);
-            color: var(--text);
-            box-shadow: 0 24px 70px rgba(0, 0, 0, 0.24);
+        nav a:hover {
+            color: white;
         }
 
-        h2 {
-            margin-bottom: 14px;
-            font-size: clamp(1.55rem, 3.5vw, 2rem);
-            font-weight: 650;
-            letter-spacing: -0.045em;
-            line-height: 1.2;
+        /* HERO */
+        .hero {
+            padding: 90px 0;
         }
 
-        .box p {
-            max-width: 64ch;
-            color: #414145;
-            font-size: 1.02rem;
+        .hero-box {
+            background: white;
+            color: #111;
+            padding: 60px;
+            border-radius: 28px;
+            box-shadow: 0 25px 60px rgba(0,0,0,.35);
         }
 
-        .dark-box p {
-            color: #b2b2b7;
+        .hero-box h1 {
+            font-size: clamp(45px, 8vw, 80px);
+            line-height: 1;
+            margin-bottom: 20px;
         }
 
-        main > section > h2 {
-            margin-bottom: 22px;
+        .hero-box p {
+            max-width: 800px;
+            font-size: 19px;
+            color: #444;
         }
 
-        #projects .box > h2 {
-            margin-bottom: 24px;
-        }
-
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr));
-            gap: 16px;
-        }
-
-        .card {
-            min-height: 180px;
-            padding: 25px;
-            border: 1px solid rgba(0, 0, 0, 0.09);
-            border-radius: 16px;
-            background: linear-gradient(155deg, #fff 0%, #f0f0f1 100%);
-            color: #111112;
-            box-shadow:
-                0 8px 20px rgba(0, 0, 0, 0.08),
-                inset 0 1px 0 rgba(255, 255, 255, 0.9);
-            transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
-        }
-
-        .card:hover {
-            transform: translateY(-4px);
-            border-color: rgba(0, 0, 0, 0.16);
-            box-shadow: 0 16px 32px rgba(0, 0, 0, 0.15);
-        }
-
-        .card h3 {
-            margin-bottom: 12px;
-            font-size: 1.12rem;
-            font-weight: 650;
-            letter-spacing: -0.025em;
-            line-height: 1.35;
-        }
-
-        .card p {
-            color: #55555a;
-            font-size: 0.96rem;
-        }
-
-        .button {
+        .hero-button {
             display: inline-block;
-            margin-top: 24px;
-            padding: 12px 20px;
-            border: 1px solid #111112;
+            margin-top: 28px;
+            padding: 14px 24px;
             border-radius: 10px;
-            background: #111112;
-            color: #fff;
-            text-decoration: none;
-            font-size: 0.94rem;
-            font-weight: 600;
-            transition: background-color 180ms ease, color 180ms ease, transform 180ms ease;
+            background: #111;
+            color: white;
+            font-weight: bold;
+            transition: .2s;
         }
 
-        .button:hover {
+        .hero-button:hover {
             transform: translateY(-2px);
-            background: #353538;
+            background: #333;
         }
 
-        .button:focus-visible {
-            outline: 3px solid #888;
-            outline-offset: 4px;
+        /* SECTIONS */
+        section {
+            padding: 30px 0;
         }
 
-        .dark-box .button {
-            border-color: #f5f5f5;
-            background: #f5f5f5;
-            color: #111112;
+        .section-box {
+            padding: 42px;
+            border: 1px solid #333;
+            border-radius: 22px;
+            background: #1a1a1a;
         }
 
-        .dark-box .button:hover {
-            background: #d9d9dc;
+        .section-title {
+            font-size: 35px;
+            margin-bottom: 16px;
         }
 
-        footer {
-            margin-top: 64px;
-            padding: 28px 0 34px;
-            border-top: 1px solid var(--line);
+        .section-text {
+            color: #c5c5c5;
+            font-size: 17px;
+        }
+
+        /* PROJECT PREVIEW */
+        .project-preview {
+            margin-top: 25px;
+            background: white;
+            color: #111;
+            padding: 30px;
+            border-radius: 18px;
+        }
+
+        .project-label {
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            color: #666;
+            margin-bottom: 8px;
+        }
+
+        .project-preview h3 {
+            font-size: 27px;
+            margin-bottom: 10px;
+        }
+
+        /* FIND ME TEXT */
+        .find-text {
             text-align: center;
-            color: #85858b;
-            font-size: 0.9rem;
+            color: #999;
+            margin-top: 60px;
+            padding-bottom: 20px;
         }
 
-        @media (max-width: 600px) {
-            .container {
-                width: min(100% - 32px, 1080px);
-            }
-
-            header {
-                padding-block: 26px;
-            }
-
-            section {
-                margin-block: 38px;
-            }
-
-            .cards {
-                gap: 12px;
-            }
-
-            .card {
-                min-height: 0;
-                padding: 22px;
-            }
+        /* PLUS BUTTON */
+        .plus-button {
+            position: fixed;
+            right: 25px;
+            bottom: 25px;
+            width: 62px;
+            height: 62px;
+            border: none;
+            border-radius: 50%;
+            background: white;
+            color: #111;
+            font-size: 35px;
+            cursor: pointer;
+            z-index: 2000;
+            box-shadow: 0 15px 35px rgba(0,0,0,.45);
+            transition: .2s;
         }
 
-        @media (prefers-reduced-motion: reduce) {
-            *,
-            *::before,
-            *::after {
-                scroll-behavior: auto !important;
-                transition-duration: 0.01ms !important;
+        .plus-button:hover {
+            transform: scale(1.08);
+        }
+
+        /* ADMIN OVERLAY */
+        .overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 3000;
+            background: rgba(0,0,0,.78);
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .admin-box {
+            width: 100%;
+            max-width: 760px;
+            margin: 35px auto;
+            background: white;
+            color: #111;
+            border-radius: 22px;
+            padding: 32px;
+        }
+
+        .admin-box h2 {
+            margin-bottom: 20px;
+        }
+
+        .mode-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .mode-button {
+            padding: 16px;
+            border: 2px solid #111;
+            border-radius: 12px;
+            background: white;
+            color: #111;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .mode-button.active {
+            background: #111;
+            color: white;
+        }
+
+        label {
+            display: block;
+            margin: 15px 0 7px;
+            font-weight: bold;
+        }
+
+        input,
+        textarea,
+        select {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #bbb;
+            border-radius: 10px;
+            font: inherit;
+        }
+
+        textarea {
+            min-height: 180px;
+            resize: vertical;
+        }
+
+        #codeInput {
+            min-height: 350px;
+            font-family: Consolas, "Courier New", monospace;
+            font-size: 14px;
+            line-height: 1.5;
+            tab-size: 4;
+            white-space: pre;
+        }
+
+        .admin-actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .admin-actions button {
+            padding: 12px 18px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .publish {
+            background: #111;
+            color: white;
+        }
+
+        .close {
+            background: #ddd;
+            color: #111;
+        }
+
+        #programForm,
+        #pictureForm,
+        #modeChoice,
+        #loginForm {
+            display: none;
+        }
+
+        #modeChoice {
+            display: block;
+        }
+
+        .message {
+            margin-top: 12px;
+            font-weight: bold;
+        }
+
+        /* FOOTER */
+        footer {
+            margin-top: 70px;
+            padding: 40px 0 55px;
+            border-top: 1px solid #333;
+            text-align: center;
+            color: #888;
+        }
+
+        /* MOBILE */
+        @media (max-width: 700px) {
+            .topbar {
+                padding: 16px 0;
+                flex-direction: column;
+            }
+
+            nav {
+                gap: 16px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero-box,
+            .section-box,
+            .admin-box {
+                padding: 27px;
+            }
+
+            .plus-button {
+                right: 18px;
+                bottom: 18px;
             }
         }
     </style>
@@ -223,132 +355,577 @@
 
 <body>
 
+    <!-- NAVBAR -->
+    <header>
+        <div class="container topbar">
+            <div class="logo">AP_FL.com</div>
+
+            <nav>
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="projects.html">Projects</a>
+            </nav>
+        </div>
+    </header>
+
+
+    <!-- HOME -->
+    <main>
+
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="hero-box">
+                    <h1>AP_FL.com</h1>
+
+                    <p>
+                        Affan's Portfolio — Freelancing.
+                        A growing collection of programming and software work.
+                    </p>
+
+                    <a href="projects.html" class="hero-button">
+                        See My Projects →
+                    </a>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ABOUT -->
+        <section id="about">
+            <div class="container">
+
+                <div class="section-box">
+                    <h2 class="section-title">About Me</h2>
+
+                    <p class="section-text">
+                        I'm building my programming skills through real projects,
+                        practical software, automation, and web development.
+                        This portfolio will grow as I create more work.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- FREELANCING TEXT -->
     <div class="container">
-
-        <header>
-            <h1>AP_FL.com</h1>
-            <p>Affan's Portfolio — Freelancing</p>
-        </header>
-
-
-        <main>
-
-            <!-- Introduction -->
-            <section>
-                <div class="box">
-                    <h2>Welcome to AP_FL</h2>
-                    <p>
-                        Welcome to my personal portfolio.
-                        I build practical software and automation projects
-                        using Python and other technologies.
-                    </p>
-
-                    <a href="#projects" class="button">View My Projects</a>
-                </div>
-            </section>
+        <p class="find-text">
+            Try to find me on freelancing platforms like:
+            Freelancer, Upwork, Fiverr and etc.
+        </p>
+    </div>
 
 
-            <!-- About -->
-            <section>
-                <div class="dark-box box">
-                    <h2>About Me</h2>
-                    <p>
-                        I'm a young programmer focused on building useful
-                        projects, improving my skills, and working toward
-                        professional freelancing.
-                    </p>
-                </div>
-            </section>
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2026 AP_FL.com — Built by Affan</p>
+    </footer>
 
 
-            <!-- Services -->
-            <section>
-                <h2>What I Build</h2>
+    <!-- PUBLIC PLUS BUTTON -->
+    <button class="plus-button" onclick="openAdmin()">+</button>
 
-                <div class="cards">
 
-                    <div class="card">
-                        <h3>🐍 Python Automation</h3>
-                        <p>
-                            Scripts that automate repetitive tasks and
-                            make workflows easier.
-                        </p>
-                    </div>
+    <!-- ADMIN SYSTEM -->
+    <div id="adminOverlay" class="overlay">
 
-                    <div class="card">
-                        <h3>📁 File Automation</h3>
-                        <p>
-                            Tools for organizing, copying, processing,
-                            and managing files.
-                        </p>
-                    </div>
+        <div class="admin-box">
 
-                    <div class="card">
-                        <h3>🌐 Websites</h3>
-                        <p>
-                            Clean and simple websites designed for
-                            personal and professional projects.
-                        </p>
-                    </div>
+            <h2>AP_FL Admin</h2>
+
+
+            <!-- LOGIN -->
+            <div id="loginForm" style="display:block;">
+
+                <label for="passwordInput">
+                    Admin Password
+                </label>
+
+                <input
+                    id="passwordInput"
+                    type="password"
+                    placeholder="Enter password"
+                >
+
+                <div class="admin-actions">
+
+                    <button class="publish" onclick="checkPassword()">
+                        Continue
+                    </button>
+
+                    <button class="close" onclick="closeAdmin()">
+                        Close
+                    </button>
 
                 </div>
-            </section>
+
+                <p id="loginMessage" class="message"></p>
+
+            </div>
 
 
-            <!-- Projects -->
-            <section id="projects">
+            <!-- MODE CHOICE -->
+            <div id="modeChoice">
 
-                <div class="box">
-                    <h2>My Projects</h2>
+                <p style="margin-bottom:15px;">
+                    What do you want to add?
+                </p>
 
-                    <div class="cards">
+                <div class="mode-buttons">
 
-                        <div class="card">
-                            <h3>Client Data Automation</h3>
-                            <p>
-                                A Python automation project for handling
-                                client data and backups.
-                            </p>
-                        </div>
+                    <button
+                        class="mode-button"
+                        onclick="chooseMode('program')"
+                    >
+                        💻 PROGRAM
+                    </button>
 
-                        <div class="card">
-                            <h3>AP_FL.com</h3>
-                            <p>
-                                This portfolio website, built and published
-                                using GitHub Pages.
-                            </p>
-                        </div>
+                    <button
+                        class="mode-button"
+                        onclick="chooseMode('picture')"
+                    >
+                        🖼️ PICTURE
+                    </button>
 
-                    </div>
                 </div>
 
-            </section>
+                <button
+                    class="close"
+                    style="padding:12px 18px;border:none;border-radius:10px;cursor:pointer;"
+                    onclick="closeAdmin()"
+                >
+                    Close
+                </button>
+
+            </div>
 
 
-            <!-- Contact -->
-            <section>
+            <!-- PROGRAM FORM -->
+            <div id="programForm">
 
-                <div class="dark-box box">
-                    <h2>Let's Connect</h2>
-                    <p>
-                        More projects and freelancing work will be added here
-                        as my portfolio grows.
-                    </p>
+                <h3>Add Programming Project</h3>
 
-                    <a href="#" class="button">Contact Me</a>
+                <label for="programTitle">
+                    Project Title
+                </label>
+
+                <input
+                    id="programTitle"
+                    type="text"
+                    placeholder="Example: Client Data Automation"
+                >
+
+
+                <label for="programDescription">
+                    Description
+                </label>
+
+                <textarea
+                    id="programDescription"
+                    placeholder="Describe this project..."
+                ></textarea>
+
+
+                <label for="languageSelect">
+                    Programming Language
+                </label>
+
+                <select id="languageSelect">
+
+                    <option value="Python">Python</option>
+                    <option value="Java">Java</option>
+                    <option value="C++">C++</option>
+                    <option value="HTML">HTML</option>
+                    <option value="CSS">CSS</option>
+
+                </select>
+
+
+                <label for="codeInput">
+                    Program
+                </label>
+
+                <textarea
+                    id="codeInput"
+                    placeholder="Paste your program here..."
+                    spellcheck="false"
+                ></textarea>
+
+
+                <div class="admin-actions">
+
+                    <button
+                        class="publish"
+                        onclick="publishProgram()"
+                    >
+                        Publish Project
+                    </button>
+
+                    <button
+                        class="close"
+                        onclick="goBackToModes()"
+                    >
+                        Back
+                    </button>
+
+                    <button
+                        class="close"
+                        onclick="closeAdmin()"
+                    >
+                        Close
+                    </button>
+
                 </div>
 
-            </section>
-
-        </main>
+            </div>
 
 
-        <footer>
-            <p>© 2026 AP_FL.com — Built by Affan</p>
-        </footer>
+            <!-- PICTURE FORM -->
+            <div id="pictureForm">
+
+                <h3>Add Picture Project</h3>
+
+                <label for="pictureTitle">
+                    Project Title
+                </label>
+
+                <input
+                    id="pictureTitle"
+                    type="text"
+                    placeholder="Example: Website Design"
+                >
+
+
+                <label for="pictureDescription">
+                    Description
+                </label>
+
+                <textarea
+                    id="pictureDescription"
+                    placeholder="Describe this project..."
+                ></textarea>
+
+
+                <label for="pictureInput">
+                    Picture
+                </label>
+
+                <input
+                    id="pictureInput"
+                    type="file"
+                    accept="image/*"
+                >
+
+
+                <div class="admin-actions">
+
+                    <button
+                        class="publish"
+                        onclick="publishPicture()"
+                    >
+                        Publish Project
+                    </button>
+
+                    <button
+                        class="close"
+                        onclick="goBackToModes()"
+                    >
+                        Back
+                    </button>
+
+                    <button
+                        class="close"
+                        onclick="closeAdmin()"
+                    >
+                        Close
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
 
     </div>
 
+
+    <script>
+
+        /* =========================
+           SETTINGS
+        ========================= */
+
+        const ADMIN_PASSWORD = "ChengChong123";
+
+        const STORAGE_KEY = "AP_FL_PROJECTS";
+
+
+        /* =========================
+           ADMIN OPEN / CLOSE
+        ========================= */
+
+        function openAdmin() {
+
+            document.getElementById("adminOverlay").style.display = "block";
+
+            document.getElementById("loginForm").style.display = "block";
+            document.getElementById("modeChoice").style.display = "none";
+            document.getElementById("programForm").style.display = "none";
+            document.getElementById("pictureForm").style.display = "none";
+
+            document.getElementById("passwordInput").value = "";
+            document.getElementById("loginMessage").textContent = "";
+        }
+
+
+        function closeAdmin() {
+            document.getElementById("adminOverlay").style.display = "none";
+        }
+
+
+        /* =========================
+           PASSWORD
+        ========================= */
+
+        function checkPassword() {
+
+            const entered =
+                document.getElementById("passwordInput").value;
+
+            const message =
+                document.getElementById("loginMessage");
+
+
+            if (entered === ADMIN_PASSWORD) {
+
+                document.getElementById("loginForm").style.display = "none";
+                document.getElementById("modeChoice").style.display = "block";
+
+                message.textContent = "";
+
+            } else {
+
+                message.textContent = "Incorrect password.";
+                message.style.color = "red";
+            }
+        }
+
+
+        /* =========================
+           MODE SELECTION
+        ========================= */
+
+        function chooseMode(mode) {
+
+            document.getElementById("modeChoice").style.display = "none";
+
+
+            if (mode === "program") {
+
+                document.getElementById("programForm").style.display = "block";
+
+            } else {
+
+                document.getElementById("pictureForm").style.display = "block";
+            }
+        }
+
+
+        function goBackToModes() {
+
+            document.getElementById("programForm").style.display = "none";
+            document.getElementById("pictureForm").style.display = "none";
+            document.getElementById("modeChoice").style.display = "block";
+        }
+
+
+        /* =========================
+           PROJECT STORAGE
+        ========================= */
+
+        function getProjects() {
+
+            return JSON.parse(
+                localStorage.getItem(STORAGE_KEY) || "[]"
+            );
+        }
+
+
+        function saveProjects(projects) {
+
+            localStorage.setItem(
+                STORAGE_KEY,
+                JSON.stringify(projects)
+            );
+        }
+
+
+        /* =========================
+           PROGRAM PUBLISH
+        ========================= */
+
+        function publishProgram() {
+
+            const title =
+                document.getElementById("programTitle").value.trim();
+
+            const description =
+                document.getElementById("programDescription").value.trim();
+
+            const language =
+                document.getElementById("languageSelect").value;
+
+            const code =
+                document.getElementById("codeInput").value;
+
+
+            if (!title || !description || !code.trim()) {
+
+                alert(
+                    "Please enter a title, description, and program."
+                );
+
+                return;
+            }
+
+
+            const projects = getProjects();
+
+
+            projects.push({
+
+                type: "program",
+
+                title: title,
+
+                description: description,
+
+                language: language,
+
+                code: code,
+
+                createdAt: new Date().toISOString()
+
+            });
+
+
+            saveProjects(projects);
+
+
+            alert(
+                "Published as PROJECT#" + (projects.length + 1)
+            );
+
+
+            clearProgramForm();
+
+            closeAdmin();
+        }
+
+
+        /* =========================
+           PICTURE PUBLISH
+        ========================= */
+
+        function publishPicture() {
+
+            const title =
+                document.getElementById("pictureTitle").value.trim();
+
+            const description =
+                document.getElementById("pictureDescription").value.trim();
+
+            const input =
+                document.getElementById("pictureInput");
+
+            const file =
+                input.files[0];
+
+
+            if (!title || !description || !file) {
+
+                alert(
+                    "Please enter a title, description, and picture."
+                );
+
+                return;
+            }
+
+
+            const reader = new FileReader();
+
+
+            reader.onload = function(event) {
+
+                const projects = getProjects();
+
+
+                projects.push({
+
+                    type: "picture",
+
+                    title: title,
+
+                    description: description,
+
+                    image: event.target.result,
+
+                    createdAt: new Date().toISOString()
+
+                });
+
+
+                saveProjects(projects);
+
+
+                alert(
+                    "Published as PROJECT#" + (projects.length + 1)
+                );
+
+
+                clearPictureForm();
+
+                closeAdmin();
+            };
+
+
+            reader.readAsDataURL(file);
+        }
+
+
+        /* =========================
+           CLEAR FORMS
+        ========================= */
+
+        function clearProgramForm() {
+
+            document.getElementById("programTitle").value = "";
+            document.getElementById("programDescription").value = "";
+            document.getElementById("codeInput").value = "";
+            document.getElementById("languageSelect").value = "Python";
+        }
+
+
+        function clearPictureForm() {
+
+            document.getElementById("pictureTitle").value = "";
+            document.getElementById("pictureDescription").value = "";
+            document.getElementById("pictureInput").value = "";
+        }
+
+
+        /*
+            This site stores projects in localStorage.
+
+            That means the project is saved in THIS browser/device.
+            For truly universal publishing that every client sees,
+            a database/backend will be needed later.
+        */
+
+    </script>
+
 </body>
 </html>
-```
