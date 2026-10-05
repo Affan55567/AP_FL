@@ -14,7 +14,9 @@
     <title>AP_FL.com — Projects</title>
 
 
-    <!-- Prism.js: gives code syntax highlighting -->
+    <!-- Prism.js -->
+    <!-- Used only for displaying code with syntax highlighting -->
+
     <link
         rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css"
@@ -37,9 +39,9 @@
 
     <style>
 
-        /* =========================
+        /* =====================================
            GENERAL
-        ========================= */
+        ===================================== */
 
         * {
             box-sizing: border-box;
@@ -56,7 +58,12 @@
         body {
             background: #111111;
             color: #ffffff;
-            font-family: Arial, Helvetica, sans-serif;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
             line-height: 1.6;
         }
 
@@ -74,28 +81,36 @@
         }
 
 
-        /* =========================
-           NAVBAR
-        ========================= */
+        /* =====================================
+           NAVIGATION
+        ===================================== */
 
         header {
+
             position: sticky;
+
             top: 0;
+
             z-index: 1000;
 
-            background: rgba(17, 17, 17, 0.95);
+            background:
+                rgba(17, 17, 17, 0.95);
 
             backdrop-filter: blur(12px);
 
-            border-bottom: 1px solid #333333;
+            border-bottom:
+                1px solid #333333;
         }
 
 
         .topbar {
+
             min-height: 78px;
 
             display: flex;
+
             align-items: center;
+
             justify-content: space-between;
 
             gap: 20px;
@@ -103,53 +118,70 @@
 
 
         .logo {
+
             font-size: 28px;
+
             font-weight: 900;
         }
 
 
         nav {
+
             display: flex;
+
             gap: 24px;
+
             flex-wrap: wrap;
         }
 
 
         nav a {
+
             color: #cccccc;
-            transition: 0.2s;
+
+            transition:
+                color 0.2s ease;
         }
 
 
         nav a:hover {
+
             color: #ffffff;
         }
 
 
-        /* =========================
+        /* =====================================
            PAGE HEADER
-        ========================= */
+        ===================================== */
 
         .hero {
-            padding: 75px 0 45px;
+
+            padding:
+                75px 0 45px;
         }
 
 
         .hero-box {
-            background: #ffffff;
-            color: #111111;
 
-            border-radius: 25px;
+            background: #ffffff;
+
+            color: #111111;
 
             padding: 50px;
 
+            border-radius: 25px;
+
             box-shadow:
-                0 20px 50px rgba(0, 0, 0, 0.3);
+                0 20px 50px
+                rgba(0, 0, 0, 0.30);
         }
 
 
         .hero-box h1 {
-            font-size: clamp(45px, 8vw, 78px);
+
+            font-size:
+                clamp(45px, 8vw, 78px);
+
             line-height: 1;
 
             margin-bottom: 15px;
@@ -157,14 +189,16 @@
 
 
         .hero-box p {
+
             color: #444444;
+
             font-size: 18px;
         }
 
 
-        /* =========================
+        /* =====================================
            PROJECT LIST
-        ========================= */
+        ===================================== */
 
         #projectsList {
 
@@ -174,13 +208,13 @@
 
             gap: 30px;
 
-            padding-bottom: 80px;
+            padding-bottom: 90px;
         }
 
 
-        /* =========================
+        /* =====================================
            PROJECT CARD
-        ========================= */
+        ===================================== */
 
         .project-card {
 
@@ -188,14 +222,17 @@
 
             color: #111111;
 
-            border-radius: 22px;
-
             padding: 32px;
 
-            box-shadow:
-                0 18px 45px rgba(0, 0, 0, 0.30);
+            border-radius: 22px;
 
-            animation: projectAppear 0.4s ease;
+            box-shadow:
+                0 18px 45px
+                rgba(0, 0, 0, 0.30);
+
+            animation:
+                projectAppear
+                0.4s ease;
         }
 
 
@@ -205,27 +242,30 @@
 
                 opacity: 0;
 
-                transform: translateY(15px);
+                transform:
+                    translateY(15px);
             }
+
 
             to {
 
                 opacity: 1;
 
-                transform: translateY(0);
+                transform:
+                    translateY(0);
             }
         }
 
 
         .project-number {
 
-            font-size: 13px;
+            color: #666666;
 
-            letter-spacing: 3px;
+            font-size: 13px;
 
             font-weight: 900;
 
-            color: #666666;
+            letter-spacing: 3px;
 
             margin-bottom: 8px;
         }
@@ -235,47 +275,94 @@
 
             font-size: 30px;
 
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
 
         .project-description {
 
-            font-size: 17px;
-
             color: #444444;
+
+            font-size: 17px;
 
             margin-bottom: 20px;
         }
 
 
-        /* =========================
+        /* =====================================
            LANGUAGE TAG
-        ========================= */
+        ===================================== */
 
-        .language {
+        .language-tag {
 
             display: inline-block;
 
-            padding: 6px 13px;
-
-            margin-bottom: 15px;
-
-            border-radius: 999px;
-
             background: #111111;
 
-            color: white;
+            color: #ffffff;
+
+            padding:
+                6px 13px;
+
+            border-radius: 999px;
 
             font-size: 13px;
 
             font-weight: bold;
+
+            margin-bottom: 16px;
         }
 
 
-        /* =========================
-           CODE BOX
-        ========================= */
+        /* =====================================
+           BUTTONS
+        ===================================== */
+
+        .project-actions {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 10px;
+
+            margin-top: 18px;
+        }
+
+
+        .project-button {
+
+            display: inline-block;
+
+            padding:
+                11px 17px;
+
+            border-radius: 10px;
+
+            background: #111111;
+
+            color: #ffffff;
+
+            font-weight: bold;
+
+            transition:
+                transform 0.2s ease,
+                background 0.2s ease;
+        }
+
+
+        .project-button:hover {
+
+            transform:
+                translateY(-2px);
+
+            background: #333333;
+        }
+
+
+        /* =====================================
+           CODE DISPLAY
+        ===================================== */
 
         .code-box {
 
@@ -289,7 +376,8 @@
 
             background: #1e1e1e;
 
-            border: 1px solid #333333;
+            border:
+                1px solid #333333;
         }
 
 
@@ -312,9 +400,9 @@
         }
 
 
-        /* =========================
-           PICTURE
-        ========================= */
+        /* =====================================
+           PROJECT IMAGE
+        ===================================== */
 
         .project-image {
 
@@ -330,255 +418,108 @@
         }
 
 
-        /* =========================
-           EMPTY PAGE
-        ========================= */
+        /* =====================================
+           DOWNLOAD ALL
+        ===================================== */
 
-        .empty {
+        .download-all-box {
+
+            margin-bottom: 35px;
+
+            padding: 30px;
 
             background: #1a1a1a;
 
-            border: 1px solid #333333;
+            border:
+                1px solid #333333;
 
             border-radius: 22px;
-
-            padding: 50px;
 
             text-align: center;
+        }
+
+
+        .download-all-box h2 {
+
+            margin-bottom: 10px;
+        }
+
+
+        .download-all-box p {
 
             color: #999999;
-        }
-
-
-        /* =========================
-           ADMIN BUTTON
-        ========================= */
-
-        .admin-button {
-
-            position: fixed;
-
-            right: 25px;
-
-            bottom: 25px;
-
-            width: 62px;
-
-            height: 62px;
-
-            border: none;
-
-            border-radius: 50%;
-
-            background: #ffffff;
-
-            color: #111111;
-
-            font-size: 28px;
-
-            font-weight: bold;
-
-            cursor: pointer;
-
-            z-index: 2000;
-
-            box-shadow:
-                0 15px 35px rgba(0, 0, 0, 0.45);
-
-            transition: 0.2s;
-        }
-
-
-        .admin-button:hover {
-
-            transform: scale(1.08);
-        }
-
-
-        /* =========================
-           ADMIN OVERLAY
-        ========================= */
-
-        .overlay {
-
-            display: none;
-
-            position: fixed;
-
-            inset: 0;
-
-            z-index: 3000;
-
-            background:
-                rgba(0, 0, 0, 0.78);
-
-            padding: 20px;
-
-            overflow-y: auto;
-        }
-
-
-        .admin-box {
-
-            width: 100%;
-
-            max-width: 650px;
-
-            margin: 50px auto;
-
-            padding: 32px;
-
-            background: #ffffff;
-
-            color: #111111;
-
-            border-radius: 22px;
-        }
-
-
-        .admin-box h2 {
 
             margin-bottom: 20px;
         }
 
 
-        .admin-box input {
+        .download-all-button {
 
-            width: 100%;
+            display: inline-block;
 
-            padding: 14px;
+            padding:
+                14px 24px;
 
-            border: 1px solid #bbbbbb;
-
-            border-radius: 10px;
-
-            font-size: 16px;
-        }
-
-
-        .admin-actions {
-
-            display: flex;
-
-            gap: 10px;
-
-            flex-wrap: wrap;
-
-            margin-top: 18px;
-        }
-
-
-        .admin-actions button {
-
-            padding: 12px 18px;
-
-            border: none;
-
-            border-radius: 10px;
-
-            cursor: pointer;
-
-            font-weight: bold;
-        }
-
-
-        .dark-button {
-
-            background: #111111;
-
-            color: #ffffff;
-        }
-
-
-        .light-button {
-
-            background: #dddddd;
+            background: #ffffff;
 
             color: #111111;
+
+            border-radius: 10px;
+
+            font-weight: 900;
+
+            transition:
+                transform 0.2s ease;
         }
 
 
-        .danger-button {
+        .download-all-button:hover {
 
-            background: #111111;
+            transform:
+                translateY(-2px);
+        }
+
+
+        /* =====================================
+           EMPTY STATE
+        ===================================== */
+
+        .empty {
+
+            background: #1a1a1a;
+
+            color: #999999;
+
+            border:
+                1px solid #333333;
+
+            border-radius: 22px;
+
+            padding: 55px;
+
+            text-align: center;
+        }
+
+
+        .empty h2 {
 
             color: #ffffff;
 
-            border: 2px solid #555555 !important;
-        }
-
-
-        .message {
-
-            margin-top: 12px;
-
-            font-weight: bold;
-        }
-
-
-        /* =========================
-           DELETE LIST
-        ========================= */
-
-        #deleteArea {
-
-            display: none;
-
-            margin-top: 25px;
-        }
-
-
-        .delete-item {
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: space-between;
-
-            gap: 15px;
-
-            padding: 14px;
-
             margin-bottom: 10px;
-
-            background: #f1f1f1;
-
-            border-radius: 10px;
         }
 
 
-        .delete-item span {
-
-            font-weight: bold;
-        }
-
-
-        .delete-item button {
-
-            border: none;
-
-            padding: 8px 12px;
-
-            border-radius: 8px;
-
-            cursor: pointer;
-
-            background: #111111;
-
-            color: white;
-        }
-
-
-        /* =========================
+        /* =====================================
            FOOTER
-        ========================= */
+        ===================================== */
 
         footer {
 
-            border-top: 1px solid #333333;
+            border-top:
+                1px solid #333333;
 
-            padding: 40px 0;
+            padding:
+                40px 0 55px;
 
             text-align: center;
 
@@ -586,9 +527,9 @@
         }
 
 
-        /* =========================
+        /* =====================================
            MOBILE
-        ========================= */
+        ===================================== */
 
         @media (max-width: 700px) {
 
@@ -607,26 +548,27 @@
 
 
             .hero-box,
-            .project-card,
-            .admin-box {
+            .project-card {
 
                 padding: 26px;
             }
 
 
-            .plus-button {
+            .project-card h2 {
 
-                right: 18px;
-
-                bottom: 18px;
+                font-size: 25px;
             }
 
 
-            .delete-item {
+            .project-actions {
 
                 flex-direction: column;
+            }
 
-                align-items: stretch;
+
+            .project-button {
+
+                text-align: center;
             }
 
         }
@@ -639,9 +581,9 @@
 <body>
 
 
-    <!-- =========================
+    <!-- =====================================
          NAVIGATION
-    ========================= -->
+    ===================================== -->
 
     <header>
 
@@ -658,9 +600,11 @@
                     Home
                 </a>
 
+
                 <a href="index.html#about">
                     About
                 </a>
+
 
                 <a href="projects.html">
                     Projects
@@ -674,11 +618,14 @@
 
 
 
-    <!-- =========================
-         PAGE TITLE
-    ========================= -->
+    <!-- =====================================
+         MAIN
+    ===================================== -->
 
     <main>
+
+
+        <!-- PAGE TITLE -->
 
         <section class="hero">
 
@@ -691,7 +638,8 @@
                     </h1>
 
                     <p>
-                        Programming and creative work published on AP_FL.com.
+                        Programming and creative work published
+                        on AP_FL.com.
                     </p>
 
                 </div>
@@ -702,15 +650,145 @@
 
 
 
-        <!-- =========================
-             PROJECTS
-        ========================= -->
+        <!-- PROJECT AREA -->
 
         <section>
 
             <div class="container">
 
-                <div id="projectsList"></div>
+
+                <!--
+                    DOWNLOAD ALL
+
+                    Put a real ZIP file in your GitHub
+                    repository and change the filename
+                    below.
+
+                    Example:
+                    downloads/AP_FL_Projects.zip
+                -->
+
+                <div class="download-all-box">
+
+                    <h2>
+                        Download All Projects
+                    </h2>
+
+                    <p>
+                        Download the complete collection
+                        of available AP_FL project files.
+                    </p>
+
+
+                    <a
+                        class="download-all-button"
+                        href="downloads/AP_FL_Projects.zip"
+                        download
+                    >
+                        ↓ Download All
+                    </a>
+
+                </div>
+
+
+
+                <!--
+                    ==================================================
+                    REAL PROJECTS GO HERE
+                    ==================================================
+
+                    IMPORTANT:
+
+                    DO NOT put fake projects here.
+
+                    Every project we add becomes:
+
+                    PROJECT#1
+                    PROJECT#2
+                    PROJECT#3
+                    ...
+
+                    The numbering is controlled automatically.
+
+                    ==================================================
+                -->
+
+                <div id="projectsList">
+
+
+                    <!--
+                        EMPTY UNTIL YOU ADD YOUR FIRST REAL PROJECT
+                    -->
+
+                    <div class="empty">
+
+                        <h2>
+                            Projects are coming soon.
+                        </h2>
+
+                        <p>
+                            Real projects will be added here
+                            as they are completed.
+                        </p>
+
+                    </div>
+
+
+                    <!--
+                    ==================================================
+                    PROJECT TEMPLATE
+
+                    Copy this entire block for every new project.
+
+                    The first one becomes PROJECT#1.
+                    The next becomes PROJECT#2.
+                    Then PROJECT#3, etc.
+
+                    ==================================================
+
+                    <article class="project-card">
+
+                        <div class="project-number">
+                            PROJECT#1
+                        </div>
+
+                        <h2>
+                            YOUR PROJECT TITLE
+                        </h2>
+
+                        <p class="project-description">
+                            YOUR PROJECT DESCRIPTION
+                        </p>
+
+                        <div class="language-tag">
+                            Python
+                        </div>
+
+                        <div class="code-box">
+
+                            <pre><code class="language-python">YOUR REAL CODE HERE</code></pre>
+
+                        </div>
+
+                        <div class="project-actions">
+
+                            <a
+                                class="project-button"
+                                href="downloads/project1.py"
+                                download
+                            >
+                                ↓ Download Program
+                            </a>
+
+                        </div>
+
+                    </article>
+
+                    ==================================================
+                    -->
+
+
+                </div>
 
             </div>
 
@@ -720,9 +798,9 @@
 
 
 
-    <!-- =========================
+    <!-- =====================================
          FOOTER
-    ========================= -->
+    ===================================== -->
 
     <footer>
 
@@ -734,793 +812,75 @@
 
 
 
-    <!-- =========================
-         ADMIN BUTTON
-    ========================= -->
-
-    <button
-        class="admin-button"
-        onclick="openAdmin()"
-        aria-label="Open admin"
-    >
-        +
-    </button>
-
-
-
-    <!-- =========================
-         ADMIN WINDOW
-    ========================= -->
-
-    <div
-        id="adminOverlay"
-        class="overlay"
-    >
-
-        <div class="admin-box">
-
-            <h2>
-                AP_FL Admin
-            </h2>
-
-
-            <!-- PASSWORD -->
-
-            <div id="passwordArea">
-
-                <p>
-                    Enter the admin password to manage projects.
-                </p>
-
-
-                <br>
-
-
-                <input
-                    id="adminPassword"
-                    type="password"
-                    placeholder="Password"
-                >
-
-
-                <div class="admin-actions">
-
-                    <button
-                        class="dark-button"
-                        onclick="loginAdmin()"
-                    >
-                        Enter
-                    </button>
-
-
-                    <button
-                        class="light-button"
-                        onclick="closeAdmin()"
-                    >
-                        Close
-                    </button>
-
-                </div>
-
-
-                <p
-                    id="passwordMessage"
-                    class="message"
-                ></p>
-
-            </div>
-
-
-
-            <!-- ADMIN CONTROLS -->
-
-            <div id="adminControls"
-                 style="display:none;">
-
-                <h3>
-                    Project Management
-                </h3>
-
-
-                <p style="margin-top:8px;color:#555;">
-
-                    Choose a project below to remove it
-                    from this browser.
-
-                </p>
-
-
-                <div id="deleteArea"></div>
-
-
-                <div class="admin-actions">
-
-                    <button
-                        class="light-button"
-                        onclick="closeAdmin()"
-                    >
-                        Close
-                    </button>
-
-
-                    <button
-                        class="light-button"
-                        onclick="logoutAdmin()"
-                    >
-                        Logout
-                    </button>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-
-    <!-- =========================
+    <!-- =====================================
          JAVASCRIPT
-    ========================= -->
+         ===================================== -->
 
     <script>
 
+        /*
+            This page is intentionally NOT using
+            localStorage.
 
-        /* =========================
-           SETTINGS
-        ========================= */
+            Projects are part of the actual website
+            source code / GitHub repository.
+
+            Therefore every visitor sees the same
+            projects after the updated files are pushed
+            to GitHub.
+        */
 
 
         /*
-            IMPORTANT:
-
-            This password is visible inside frontend code.
-
-            It is therefore NOT real security.
-
-            It is simply a convenient admin gate.
+            Removes the "Projects are coming soon"
+            message automatically once the first
+            real project is added.
         */
 
-        const ADMIN_PASSWORD =
-            "ChengChong123";
-
-
-        const STORAGE_KEY =
-            "AP_FL_PROJECTS";
-
-
-
-        /* =========================
-           PROJECT DATA
-        ========================= */
-
-
-        /*
-            The page starts EMPTY.
-
-            Your real projects will appear here
-            after they are published by the matching
-            AP_FL system.
-        */
-
-        function getProjects() {
-
-            try {
-
-                const projects =
-                    JSON.parse(
-                        localStorage.getItem(
-                            STORAGE_KEY
-                        ) || "[]"
-                    );
-
-
-                return Array.isArray(projects)
-                    ? projects
-                    : [];
-
-            } catch (error) {
-
-                return [];
-            }
-        }
-
-
-
-        /* =========================
-           LANGUAGE MAPPING
-        ========================= */
-
-        function getPrismLanguage(language) {
-
-            const languages = {
-
-                "Python": "python",
-
-                "Java": "java",
-
-                "C++": "cpp",
-
-                "HTML": "markup",
-
-                "CSS": "css"
-
-            };
-
-
-            return languages[language] || "none";
-        }
-
-
-
-        /* =========================
-           RENDER PROJECTS
-        ========================= */
-
-        function renderProjects() {
-
-            const projects =
-                getProjects();
-
-
-            const container =
-                document.getElementById(
-                    "projectsList"
-                );
-
-
-            container.innerHTML = "";
-
-
-            /*
-                NO FAKE PROJECT#1.
-
-                The first REAL project added by you
-                automatically becomes PROJECT#1.
-            */
-
-            if (projects.length === 0) {
-
-                const empty =
-                    document.createElement(
-                        "div"
-                    );
-
-
-                empty.className = "empty";
-
-
-                empty.innerHTML = `
-                    <h2>No projects yet</h2>
-                    <p>
-                        Your real projects will appear here.
-                    </p>
-                `;
-
-
-                container.appendChild(empty);
-
-
-                return;
-            }
-
-
-            /*
-                Automatically number every project.
-
-                1 project  -> PROJECT#1
-                2 projects -> PROJECT#1, PROJECT#2
-                37 projects -> PROJECT#1 ... PROJECT#37
-
-                The page grows automatically.
-            */
-
-            projects.forEach(
-                function(project, index) {
-
-                    renderProject(
-                        project,
-                        index + 1,
-                        container
-                    );
-
-                }
+        const projectsList =
+            document.getElementById(
+                "projectsList"
             );
 
 
-            /*
-                Run syntax highlighting
-                after the project cards exist.
-            */
+        function updateEmptyMessage() {
+
+            const realProjects =
+                projectsList.querySelectorAll(
+                    ".project-card"
+                );
+
+
+            const emptyMessage =
+                projectsList.querySelector(
+                    ".empty"
+                );
+
+
+            if (
+                realProjects.length > 0 &&
+                emptyMessage
+            ) {
+
+                emptyMessage.remove();
+            }
+        }
+
+
+        updateEmptyMessage();
+
+
+        /*
+            Run Prism after the page loads
+            so real project code gets highlighted.
+        */
+
+        if (
+            typeof Prism !== "undefined"
+        ) {
 
             Prism.highlightAll();
         }
-
-
-
-        /* =========================
-           CREATE PROJECT CARD
-        ========================= */
-
-        function renderProject(
-            project,
-            number,
-            container
-        ) {
-
-            const card =
-                document.createElement(
-                    "article"
-                );
-
-
-            card.className =
-                "project-card";
-
-
-            /* PROJECT NUMBER */
-
-            const projectNumber =
-                document.createElement(
-                    "div"
-                );
-
-
-            projectNumber.className =
-                "project-number";
-
-
-            projectNumber.textContent =
-                "PROJECT#" + number;
-
-
-            card.appendChild(
-                projectNumber
-            );
-
-
-
-            /* TITLE */
-
-            const title =
-                document.createElement(
-                    "h2"
-                );
-
-
-            title.textContent =
-                project.title;
-
-
-            card.appendChild(
-                title
-            );
-
-
-
-            /* DESCRIPTION */
-
-            const description =
-                document.createElement(
-                    "p"
-                );
-
-
-            description.className =
-                "project-description";
-
-
-            description.textContent =
-                project.description;
-
-
-            card.appendChild(
-                description
-            );
-
-
-
-            /* PROGRAM */
-
-            if (
-                project.type === "program"
-            ) {
-
-                const language =
-                    document.createElement(
-                        "div"
-                    );
-
-
-                language.className =
-                    "language";
-
-
-                language.textContent =
-                    project.language;
-
-
-                card.appendChild(
-                    language
-                );
-
-
-                const codeBox =
-                    document.createElement(
-                        "div"
-                    );
-
-
-                codeBox.className =
-                    "code-box";
-
-
-                const pre =
-                    document.createElement(
-                        "pre"
-                    );
-
-
-                const code =
-                    document.createElement(
-                        "code"
-                    );
-
-
-                code.className =
-                    "language-" +
-                    getPrismLanguage(
-                        project.language
-                    );
-
-
-                /*
-                    textContent is deliberately used.
-
-                    This means even a huge program is
-                    shown as CODE, not executed as HTML
-                    or JavaScript.
-                */
-
-                code.textContent =
-                    project.code || "";
-
-
-                pre.appendChild(
-                    code
-                );
-
-
-                codeBox.appendChild(
-                    pre
-                );
-
-
-                card.appendChild(
-                    codeBox
-                );
-            }
-
-
-
-            /* PICTURE */
-
-            if (
-                project.type === "picture" &&
-                project.image
-            ) {
-
-                const image =
-                    document.createElement(
-                        "img"
-                    );
-
-
-                image.className =
-                    "project-image";
-
-
-                image.src =
-                    project.image;
-
-
-                image.alt =
-                    project.title;
-
-
-                card.appendChild(
-                    image
-                );
-            }
-
-
-
-            container.appendChild(
-                card
-            );
-        }
-
-
-
-        /* =========================
-           ADMIN OPEN
-        ========================= */
-
-        function openAdmin() {
-
-            document.getElementById(
-                "adminOverlay"
-            ).style.display = "block";
-
-
-            document.getElementById(
-                "passwordArea"
-            ).style.display = "block";
-
-
-            document.getElementById(
-                "adminControls"
-            ).style.display = "none";
-
-
-            document.getElementById(
-                "adminPassword"
-            ).value = "";
-
-
-            document.getElementById(
-                "passwordMessage"
-            ).textContent = "";
-        }
-
-
-
-        /* =========================
-           ADMIN CLOSE
-        ========================= */
-
-        function closeAdmin() {
-
-            document.getElementById(
-                "adminOverlay"
-            ).style.display = "none";
-        }
-
-
-
-        /* =========================
-           LOGIN
-        ========================= */
-
-        function loginAdmin() {
-
-            const password =
-                document.getElementById(
-                    "adminPassword"
-                ).value;
-
-
-            const message =
-                document.getElementById(
-                    "passwordMessage"
-                );
-
-
-            if (
-                password ===
-                ADMIN_PASSWORD
-            ) {
-
-                document.getElementById(
-                    "passwordArea"
-                ).style.display = "none";
-
-
-                document.getElementById(
-                    "adminControls"
-                ).style.display = "block";
-
-
-                renderDeleteList();
-
-
-            } else {
-
-                message.textContent =
-                    "Incorrect password.";
-
-
-                message.style.color =
-                    "#cc0000";
-            }
-        }
-
-
-
-        /* =========================
-           LOGOUT
-        ========================= */
-
-        function logoutAdmin() {
-
-            document.getElementById(
-                "adminControls"
-            ).style.display = "none";
-
-
-            document.getElementById(
-                "passwordArea"
-            ).style.display = "block";
-
-
-            document.getElementById(
-                "adminPassword"
-            ).value = "";
-        }
-
-
-
-        /* =========================
-           DELETE PROJECT LIST
-        ========================= */
-
-        function renderDeleteList() {
-
-            const projects =
-                getProjects();
-
-
-            const area =
-                document.getElementById(
-                    "deleteArea"
-                );
-
-
-            area.style.display =
-                "block";
-
-
-            area.innerHTML = "";
-
-
-            if (projects.length === 0) {
-
-                area.innerHTML = `
-                    <p style="color:#777;">
-                        There are no projects to remove.
-                    </p>
-                `;
-
-                return;
-            }
-
-
-
-            projects.forEach(
-                function(project, index) {
-
-                    const item =
-                        document.createElement(
-                            "div"
-                        );
-
-
-                    item.className =
-                        "delete-item";
-
-
-                    const name =
-                        document.createElement(
-                            "span"
-                        );
-
-
-                    name.textContent =
-                        "PROJECT#" +
-                        (index + 1) +
-                        " — " +
-                        project.title;
-
-
-                    const button =
-                        document.createElement(
-                            "button"
-                        );
-
-
-                    button.textContent =
-                        "Remove";
-
-
-                    button.onclick =
-                        function() {
-
-                            removeProject(index);
-
-                        };
-
-
-                    item.appendChild(
-                        name
-                    );
-
-
-                    item.appendChild(
-                        button
-                    );
-
-
-                    area.appendChild(
-                        item
-                    );
-                }
-            );
-        }
-
-
-
-        /* =========================
-           REMOVE PROJECT
-        ========================= */
-
-        function removeProject(index) {
-
-            const projects =
-                getProjects();
-
-
-            const project =
-                projects[index];
-
-
-            if (!project) {
-
-                return;
-            }
-
-
-            const confirmed =
-                confirm(
-                    "Remove PROJECT#" +
-                    (index + 1) +
-                    " — " +
-                    project.title +
-                    " from this browser?"
-                );
-
-
-            if (!confirmed) {
-
-                return;
-            }
-
-
-            projects.splice(
-                index,
-                1
-            );
-
-
-            localStorage.setItem(
-                STORAGE_KEY,
-                JSON.stringify(projects)
-            );
-
-
-            renderProjects();
-
-
-            renderDeleteList();
-        }
-
-
-
-        /* =========================
-           START PAGE
-        ========================= */
-
-        renderProjects();
 
     </script>
 
