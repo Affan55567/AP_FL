@@ -14,8 +14,11 @@
     <title>AP_FL.com — Projects</title>
 
 
-    <!-- Prism.js -->
-    <!-- Used only for displaying code with syntax highlighting -->
+    <!-- =========================================================
+         PRISM.JS
+         Syntax highlighting for:
+         Python, Java, C++, HTML and CSS
+    ========================================================== -->
 
     <link
         rel="stylesheet"
@@ -39,9 +42,9 @@
 
     <style>
 
-        /* =====================================
-           GENERAL
-        ===================================== */
+        /* =========================================================
+           RESET
+        ========================================================== */
 
         * {
             box-sizing: border-box;
@@ -65,12 +68,22 @@
                 sans-serif;
 
             line-height: 1.6;
+
+            min-height: 100vh;
         }
 
 
         a {
             text-decoration: none;
             color: inherit;
+        }
+
+
+        button,
+        input,
+        textarea,
+        select {
+            font: inherit;
         }
 
 
@@ -81,9 +94,10 @@
         }
 
 
-        /* =====================================
-           NAVIGATION
-        ===================================== */
+
+        /* =========================================================
+           NAVBAR
+        ========================================================== */
 
         header {
 
@@ -96,7 +110,8 @@
             background:
                 rgba(17, 17, 17, 0.95);
 
-            backdrop-filter: blur(12px);
+            backdrop-filter:
+                blur(12px);
 
             border-bottom:
                 1px solid #333333;
@@ -122,12 +137,16 @@
             font-size: 28px;
 
             font-weight: 900;
+
+            letter-spacing: 0.5px;
         }
 
 
         nav {
 
             display: flex;
+
+            align-items: center;
 
             gap: 24px;
 
@@ -150,14 +169,15 @@
         }
 
 
-        /* =====================================
-           PAGE HEADER
-        ===================================== */
+
+        /* =========================================================
+           HERO
+        ========================================================== */
 
         .hero {
 
             padding:
-                75px 0 45px;
+                80px 0 45px;
         }
 
 
@@ -167,24 +187,24 @@
 
             color: #111111;
 
-            padding: 50px;
+            border-radius: 26px;
 
-            border-radius: 25px;
+            padding: 55px;
 
             box-shadow:
-                0 20px 50px
-                rgba(0, 0, 0, 0.30);
+                0 25px 60px
+                rgba(0, 0, 0, 0.35);
         }
 
 
         .hero-box h1 {
 
             font-size:
-                clamp(45px, 8vw, 78px);
+                clamp(45px, 8vw, 80px);
 
             line-height: 1;
 
-            margin-bottom: 15px;
+            margin-bottom: 18px;
         }
 
 
@@ -193,12 +213,22 @@
             color: #444444;
 
             font-size: 18px;
+
+            max-width: 800px;
         }
 
 
-        /* =====================================
-           PROJECT LIST
-        ===================================== */
+
+        /* =========================================================
+           PROJECT AREA
+        ========================================================== */
+
+        #projectsArea {
+
+            padding:
+                25px 0 90px;
+        }
+
 
         #projectsList {
 
@@ -207,32 +237,32 @@
             flex-direction: column;
 
             gap: 30px;
-
-            padding-bottom: 90px;
         }
 
 
-        /* =====================================
+
+        /* =========================================================
            PROJECT CARD
-        ===================================== */
+        ========================================================== */
 
         .project-card {
+
+            position: relative;
 
             background: #ffffff;
 
             color: #111111;
 
-            padding: 32px;
+            border-radius: 24px;
 
-            border-radius: 22px;
+            padding: 34px;
 
             box-shadow:
                 0 18px 45px
                 rgba(0, 0, 0, 0.30);
 
             animation:
-                projectAppear
-                0.4s ease;
+                projectAppear 0.4s ease;
         }
 
 
@@ -271,11 +301,13 @@
         }
 
 
-        .project-card h2 {
+        .project-title {
 
-            font-size: 30px;
+            font-size: 31px;
 
-            margin-bottom: 10px;
+            margin-bottom: 12px;
+
+            word-break: break-word;
         }
 
 
@@ -285,13 +317,18 @@
 
             font-size: 17px;
 
+            white-space: pre-wrap;
+
+            word-break: break-word;
+
             margin-bottom: 20px;
         }
 
 
-        /* =====================================
+
+        /* =========================================================
            LANGUAGE TAG
-        ===================================== */
+        ========================================================== */
 
         .language-tag {
 
@@ -301,87 +338,74 @@
 
             color: #ffffff;
 
+            border-radius: 999px;
+
             padding:
                 6px 13px;
 
-            border-radius: 999px;
+            margin-bottom: 18px;
 
             font-size: 13px;
 
-            font-weight: bold;
-
-            margin-bottom: 16px;
+            font-weight: 800;
         }
 
 
-        /* =====================================
-           BUTTONS
-        ===================================== */
 
-        .project-actions {
+        /* =========================================================
+           CODE BOX
+        ========================================================== */
 
-            display: flex;
-
-            flex-wrap: wrap;
-
-            gap: 10px;
-
-            margin-top: 18px;
-        }
-
-
-        .project-button {
-
-            display: inline-block;
-
-            padding:
-                11px 17px;
-
-            border-radius: 10px;
-
-            background: #111111;
-
-            color: #ffffff;
-
-            font-weight: bold;
-
-            transition:
-                transform 0.2s ease,
-                background 0.2s ease;
-        }
-
-
-        .project-button:hover {
-
-            transform:
-                translateY(-2px);
-
-            background: #333333;
-        }
-
-
-        /* =====================================
-           CODE DISPLAY
-        ===================================== */
-
-        .code-box {
+        .code-wrapper {
 
             width: 100%;
 
-            max-height: 750px;
+            border-radius: 16px;
 
-            overflow: auto;
-
-            border-radius: 15px;
-
-            background: #1e1e1e;
+            overflow: hidden;
 
             border:
                 1px solid #333333;
+
+            background: #1e1e1e;
         }
 
 
-        .code-box pre {
+        .code-header {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 15px;
+
+            padding:
+                12px 16px;
+
+            background: #181818;
+
+            border-bottom:
+                1px solid #333333;
+
+            color: #aaaaaa;
+
+            font-size: 13px;
+        }
+
+
+        .code-content {
+
+            max-width: 100%;
+
+            max-height: 850px;
+
+            overflow: auto;
+        }
+
+
+        .code-content pre {
 
             margin: 0;
 
@@ -397,98 +421,40 @@
             font-size: 14px;
 
             line-height: 1.55;
+
+            white-space: pre;
         }
 
 
-        /* =====================================
-           PROJECT IMAGE
-        ===================================== */
+
+        /* =========================================================
+           PICTURE PROJECT
+        ========================================================== */
 
         .project-image {
 
+            display: block;
+
             width: 100%;
 
-            max-height: 700px;
+            max-height: 750px;
 
             object-fit: contain;
 
-            border-radius: 15px;
+            border-radius: 16px;
 
             background: #eeeeee;
         }
 
 
-        /* =====================================
-           DOWNLOAD ALL
-        ===================================== */
 
-        .download-all-box {
-
-            margin-bottom: 35px;
-
-            padding: 30px;
-
-            background: #1a1a1a;
-
-            border:
-                1px solid #333333;
-
-            border-radius: 22px;
-
-            text-align: center;
-        }
-
-
-        .download-all-box h2 {
-
-            margin-bottom: 10px;
-        }
-
-
-        .download-all-box p {
-
-            color: #999999;
-
-            margin-bottom: 20px;
-        }
-
-
-        .download-all-button {
-
-            display: inline-block;
-
-            padding:
-                14px 24px;
-
-            background: #ffffff;
-
-            color: #111111;
-
-            border-radius: 10px;
-
-            font-weight: 900;
-
-            transition:
-                transform 0.2s ease;
-        }
-
-
-        .download-all-button:hover {
-
-            transform:
-                translateY(-2px);
-        }
-
-
-        /* =====================================
+        /* =========================================================
            EMPTY STATE
-        ===================================== */
+        ========================================================== */
 
-        .empty {
+        .empty-box {
 
             background: #1a1a1a;
-
-            color: #999999;
 
             border:
                 1px solid #333333;
@@ -498,10 +464,12 @@
             padding: 55px;
 
             text-align: center;
+
+            color: #999999;
         }
 
 
-        .empty h2 {
+        .empty-box h2 {
 
             color: #ffffff;
 
@@ -509,11 +477,448 @@
         }
 
 
-        /* =====================================
+
+        /* =========================================================
+           ADMIN BUTTON
+        ========================================================== */
+
+        .admin-button {
+
+            position: fixed;
+
+            right: 25px;
+
+            bottom: 25px;
+
+            z-index: 2000;
+
+            width: 62px;
+
+            height: 62px;
+
+            border: none;
+
+            border-radius: 50%;
+
+            background: #ffffff;
+
+            color: #111111;
+
+            font-size: 34px;
+
+            font-weight: 800;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 15px 35px
+                rgba(0, 0, 0, 0.45);
+
+            transition:
+                transform 0.2s ease;
+        }
+
+
+        .admin-button:hover {
+
+            transform:
+                scale(1.08);
+        }
+
+
+
+        /* =========================================================
+           ADMIN OVERLAY
+        ========================================================== */
+
+        .overlay {
+
+            display: none;
+
+            position: fixed;
+
+            inset: 0;
+
+            z-index: 5000;
+
+            background:
+                rgba(0, 0, 0, 0.80);
+
+            padding: 20px;
+
+            overflow-y: auto;
+        }
+
+
+        .admin-panel {
+
+            width: 100%;
+
+            max-width: 760px;
+
+            margin:
+                35px auto;
+
+            padding: 34px;
+
+            background: #ffffff;
+
+            color: #111111;
+
+            border-radius: 24px;
+
+            box-shadow:
+                0 30px 80px
+                rgba(0, 0, 0, 0.45);
+        }
+
+
+        .admin-panel h2 {
+
+            font-size: 30px;
+
+            margin-bottom: 8px;
+        }
+
+
+        .admin-panel h3 {
+
+            font-size: 22px;
+
+            margin-bottom: 10px;
+        }
+
+
+        .admin-subtitle {
+
+            color: #666666;
+
+            margin-bottom: 25px;
+        }
+
+
+
+        /* =========================================================
+           ADMIN INPUTS
+        ========================================================== */
+
+        .field {
+
+            margin-top: 18px;
+        }
+
+
+        .field label {
+
+            display: block;
+
+            margin-bottom: 7px;
+
+            font-weight: 800;
+        }
+
+
+        .field input,
+        .field textarea,
+        .field select {
+
+            width: 100%;
+
+            border:
+                1px solid #bbbbbb;
+
+            border-radius: 11px;
+
+            padding: 13px;
+
+            background: #ffffff;
+
+            color: #111111;
+
+            outline: none;
+        }
+
+
+        .field input:focus,
+        .field textarea:focus,
+        .field select:focus {
+
+            border-color: #111111;
+        }
+
+
+        .field textarea {
+
+            min-height: 150px;
+
+            resize: vertical;
+        }
+
+
+        /* HUGE CODE EDITOR */
+
+        #codeInput {
+
+            min-height: 420px;
+
+            resize: vertical;
+
+            font-family:
+                Consolas,
+                "Courier New",
+                monospace;
+
+            font-size: 14px;
+
+            line-height: 1.55;
+
+            white-space: pre;
+
+            tab-size: 4;
+        }
+
+
+        .help-text {
+
+            margin-top: 6px;
+
+            font-size: 13px;
+
+            color: #777777;
+        }
+
+
+
+        /* =========================================================
+           ADMIN MODE CHOICE
+        ========================================================== */
+
+        .choice-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 14px;
+
+            margin-top: 20px;
+        }
+
+
+        .choice-button {
+
+            padding: 22px;
+
+            border:
+                2px solid #111111;
+
+            border-radius: 15px;
+
+            background: #ffffff;
+
+            color: #111111;
+
+            cursor: pointer;
+
+            font-weight: 900;
+
+            font-size: 16px;
+
+            transition:
+                background 0.2s ease,
+                color 0.2s ease,
+                transform 0.2s ease;
+        }
+
+
+        .choice-button:hover {
+
+            background: #111111;
+
+            color: #ffffff;
+
+            transform:
+                translateY(-2px);
+        }
+
+
+
+        /* =========================================================
+           ADMIN BUTTONS
+        ========================================================== */
+
+        .admin-actions {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 10px;
+
+            margin-top: 22px;
+        }
+
+
+        .admin-action {
+
+            border: none;
+
+            border-radius: 10px;
+
+            padding:
+                12px 18px;
+
+            cursor: pointer;
+
+            font-weight: 800;
+        }
+
+
+        .primary {
+
+            background: #111111;
+
+            color: #ffffff;
+        }
+
+
+        .secondary {
+
+            background: #dddddd;
+
+            color: #111111;
+        }
+
+
+        .danger {
+
+            background: #191919;
+
+            color: #ffffff;
+
+            border:
+                1px solid #666666;
+        }
+
+
+
+        /* =========================================================
+           ADMIN REMOVE LIST
+        ========================================================== */
+
+        #manageArea {
+
+            display: none;
+        }
+
+
+        .manage-list {
+
+            margin-top: 20px;
+        }
+
+
+        .manage-item {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 15px;
+
+            padding: 14px;
+
+            margin-bottom: 10px;
+
+            background: #f0f0f0;
+
+            border-radius: 11px;
+        }
+
+
+        .manage-info {
+
+            min-width: 0;
+        }
+
+
+        .manage-project-number {
+
+            font-size: 12px;
+
+            font-weight: 900;
+
+            color: #777777;
+
+            letter-spacing: 1px;
+        }
+
+
+        .manage-project-title {
+
+            font-weight: 800;
+
+            word-break: break-word;
+        }
+
+
+        .remove-small {
+
+            flex-shrink: 0;
+
+            border: none;
+
+            padding:
+                9px 13px;
+
+            border-radius: 8px;
+
+            cursor: pointer;
+
+            background: #111111;
+
+            color: #ffffff;
+
+            font-weight: 800;
+        }
+
+
+
+        /* =========================================================
+           MESSAGES
+        ========================================================== */
+
+        .message {
+
+            margin-top: 12px;
+
+            font-weight: 800;
+        }
+
+
+        .error {
+
+            color: #b00000;
+        }
+
+
+        .success {
+
+            color: #167000;
+        }
+
+
+
+        /* =========================================================
            FOOTER
-        ===================================== */
+        ========================================================== */
 
         footer {
+
+            margin-top: 60px;
 
             border-top:
                 1px solid #333333;
@@ -521,15 +926,16 @@
             padding:
                 40px 0 55px;
 
-            text-align: center;
-
             color: #888888;
+
+            text-align: center;
         }
 
 
-        /* =====================================
+
+        /* =========================================================
            MOBILE
-        ===================================== */
+        ========================================================== */
 
         @media (max-width: 700px) {
 
@@ -537,7 +943,8 @@
 
                 flex-direction: column;
 
-                padding: 16px 0;
+                padding:
+                    16px 0;
             }
 
 
@@ -548,27 +955,42 @@
 
 
             .hero-box,
-            .project-card {
+            .project-card,
+            .admin-panel {
 
                 padding: 26px;
             }
 
 
-            .project-card h2 {
+            .hero {
 
-                font-size: 25px;
+                padding-top: 50px;
             }
 
 
-            .project-actions {
+            .choice-grid {
+
+                grid-template-columns: 1fr;
+            }
+
+
+            .manage-item {
 
                 flex-direction: column;
+
+                align-items: stretch;
             }
 
 
-            .project-button {
+            .remove-small {
 
-                text-align: center;
+                width: 100%;
+            }
+
+
+            .project-title {
+
+                font-size: 26px;
             }
 
         }
@@ -578,12 +1000,13 @@
 </head>
 
 
+
 <body>
 
 
-    <!-- =====================================
+    <!-- =========================================================
          NAVIGATION
-    ===================================== -->
+    ========================================================== -->
 
     <header>
 
@@ -618,14 +1041,11 @@
 
 
 
-    <!-- =====================================
-         MAIN
-    ===================================== -->
+    <!-- =========================================================
+         PAGE HEADER
+    ========================================================== -->
 
     <main>
-
-
-        <!-- PAGE TITLE -->
 
         <section class="hero">
 
@@ -650,145 +1070,15 @@
 
 
 
-        <!-- PROJECT AREA -->
+        <!-- =====================================================
+             PROJECTS
+        ====================================================== -->
 
-        <section>
+        <section id="projectsArea">
 
             <div class="container">
 
-
-                <!--
-                    DOWNLOAD ALL
-
-                    Put a real ZIP file in your GitHub
-                    repository and change the filename
-                    below.
-
-                    Example:
-                    downloads/AP_FL_Projects.zip
-                -->
-
-                <div class="download-all-box">
-
-                    <h2>
-                        Download All Projects
-                    </h2>
-
-                    <p>
-                        Download the complete collection
-                        of available AP_FL project files.
-                    </p>
-
-
-                    <a
-                        class="download-all-button"
-                        href="downloads/AP_FL_Projects.zip"
-                        download
-                    >
-                        ↓ Download All
-                    </a>
-
-                </div>
-
-
-
-                <!--
-                    ==================================================
-                    REAL PROJECTS GO HERE
-                    ==================================================
-
-                    IMPORTANT:
-
-                    DO NOT put fake projects here.
-
-                    Every project we add becomes:
-
-                    PROJECT#1
-                    PROJECT#2
-                    PROJECT#3
-                    ...
-
-                    The numbering is controlled automatically.
-
-                    ==================================================
-                -->
-
-                <div id="projectsList">
-
-
-                    <!--
-                        EMPTY UNTIL YOU ADD YOUR FIRST REAL PROJECT
-                    -->
-
-                    <div class="empty">
-
-                        <h2>
-                            Projects are coming soon.
-                        </h2>
-
-                        <p>
-                            Real projects will be added here
-                            as they are completed.
-                        </p>
-
-                    </div>
-
-
-                    <!--
-                    ==================================================
-                    PROJECT TEMPLATE
-
-                    Copy this entire block for every new project.
-
-                    The first one becomes PROJECT#1.
-                    The next becomes PROJECT#2.
-                    Then PROJECT#3, etc.
-
-                    ==================================================
-
-                    <article class="project-card">
-
-                        <div class="project-number">
-                            PROJECT#1
-                        </div>
-
-                        <h2>
-                            YOUR PROJECT TITLE
-                        </h2>
-
-                        <p class="project-description">
-                            YOUR PROJECT DESCRIPTION
-                        </p>
-
-                        <div class="language-tag">
-                            Python
-                        </div>
-
-                        <div class="code-box">
-
-                            <pre><code class="language-python">YOUR REAL CODE HERE</code></pre>
-
-                        </div>
-
-                        <div class="project-actions">
-
-                            <a
-                                class="project-button"
-                                href="downloads/project1.py"
-                                download
-                            >
-                                ↓ Download Program
-                            </a>
-
-                        </div>
-
-                    </article>
-
-                    ==================================================
-                    -->
-
-
-                </div>
+                <div id="projectsList"></div>
 
             </div>
 
@@ -798,9 +1088,9 @@
 
 
 
-    <!-- =====================================
+    <!-- =========================================================
          FOOTER
-    ===================================== -->
+    ========================================================== -->
 
     <footer>
 
@@ -812,75 +1102,1740 @@
 
 
 
-    <!-- =====================================
+    <!-- =========================================================
+         PUBLIC PLUS BUTTON
+    ========================================================== -->
+
+    <button
+        class="admin-button"
+        onclick="openAdmin()"
+        aria-label="Open project management"
+    >
+        +
+    </button>
+
+
+
+    <!-- =========================================================
+         ADMIN OVERLAY
+    ========================================================== -->
+
+    <div
+        id="adminOverlay"
+        class="overlay"
+    >
+
+        <div class="admin-panel">
+
+
+            <!-- =================================================
+                 PASSWORD SCREEN
+            ================================================== -->
+
+            <div id="passwordScreen">
+
+                <h2>
+                    AP_FL Admin
+                </h2>
+
+                <p class="admin-subtitle">
+                    Enter the administrator password.
+                </p>
+
+
+                <div class="field">
+
+                    <label for="passwordInput">
+                        Password
+                    </label>
+
+                    <input
+                        id="passwordInput"
+                        type="password"
+                        autocomplete="off"
+                        placeholder="Enter password"
+                    >
+
+                </div>
+
+
+                <div class="admin-actions">
+
+                    <button
+                        class="admin-action primary"
+                        onclick="checkPassword()"
+                    >
+                        Continue
+                    </button>
+
+
+                    <button
+                        class="admin-action secondary"
+                        onclick="closeAdmin()"
+                    >
+                        Close
+                    </button>
+
+                </div>
+
+
+                <p
+                    id="passwordMessage"
+                    class="message"
+                ></p>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 MAIN ADMIN MENU
+            ================================================== -->
+
+            <div
+                id="adminMenu"
+                style="display:none;"
+            >
+
+                <h2>
+                    Project Management
+                </h2>
+
+
+                <p class="admin-subtitle">
+                    Choose what you want to do.
+                </p>
+
+
+                <div class="choice-grid">
+
+                    <button
+                        class="choice-button"
+                        onclick="openProgramForm()"
+                    >
+                        💻 Add Program
+                    </button>
+
+
+                    <button
+                        class="choice-button"
+                        onclick="openPictureForm()"
+                    >
+                        🖼️ Add Picture
+                    </button>
+
+                </div>
+
+
+                <div class="admin-actions">
+
+                    <button
+                        class="admin-action danger"
+                        onclick="openManageArea()"
+                    >
+                        Manage / Remove Projects
+                    </button>
+
+
+                    <button
+                        class="admin-action secondary"
+                        onclick="logoutAdmin()"
+                    >
+                        Logout
+                    </button>
+
+
+                    <button
+                        class="admin-action secondary"
+                        onclick="closeAdmin()"
+                    >
+                        Close
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 PROGRAM FORM
+            ================================================== -->
+
+            <div
+                id="programForm"
+                style="display:none;"
+            >
+
+                <h2>
+                    Add Programming Project
+                </h2>
+
+
+                <p class="admin-subtitle">
+                    Add one of your real programming projects.
+                </p>
+
+
+                <div class="field">
+
+                    <label for="programTitle">
+                        Project Title
+                    </label>
+
+                    <input
+                        id="programTitle"
+                        type="text"
+                        placeholder="Example: Client Data Automation"
+                    >
+
+                </div>
+
+
+                <div class="field">
+
+                    <label for="programDescription">
+                        Description
+                    </label>
+
+                    <textarea
+                        id="programDescription"
+                        placeholder="Describe what this project does..."
+                    ></textarea>
+
+                </div>
+
+
+                <div class="field">
+
+                    <label for="languageSelect">
+                        Programming Language
+                    </label>
+
+
+                    <select id="languageSelect">
+
+                        <!-- EXACTLY FIVE OPTIONS -->
+
+                        <option value="Python">
+                            Python
+                        </option>
+
+                        <option value="Java">
+                            Java
+                        </option>
+
+                        <option value="C++">
+                            C++
+                        </option>
+
+                        <option value="HTML">
+                            HTML
+                        </option>
+
+                        <option value="CSS">
+                            CSS
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="field">
+
+                    <label for="codeInput">
+                        Program
+                    </label>
+
+
+                    <textarea
+                        id="codeInput"
+                        spellcheck="false"
+                        placeholder="Paste your program here..."
+                    ></textarea>
+
+
+                    <p class="help-text">
+                        Large programs are supported. Published code
+                        will be displayed in a scrollable syntax-highlighted box.
+                    </p>
+
+                </div>
+
+
+                <div class="admin-actions">
+
+                    <button
+                        class="admin-action primary"
+                        onclick="publishProgram()"
+                    >
+                        Publish
+                    </button>
+
+
+                    <button
+                        class="admin-action secondary"
+                        onclick="returnToAdminMenu()"
+                    >
+                        Back
+                    </button>
+
+                </div>
+
+
+                <p
+                    id="programMessage"
+                    class="message"
+                ></p>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 PICTURE FORM
+            ================================================== -->
+
+            <div
+                id="pictureForm"
+                style="display:none;"
+            >
+
+                <h2>
+                    Add Picture
+                </h2>
+
+
+                <p class="admin-subtitle">
+                    Add a real project picture to the portfolio.
+                </p>
+
+
+                <div class="field">
+
+                    <label for="pictureTitle">
+                        Project Title
+                    </label>
+
+                    <input
+                        id="pictureTitle"
+                        type="text"
+                        placeholder="Example: Website Design"
+                    >
+
+                </div>
+
+
+                <div class="field">
+
+                    <label for="pictureDescription">
+                        Description
+                    </label>
+
+                    <textarea
+                        id="pictureDescription"
+                        placeholder="Describe the picture/project..."
+                    ></textarea>
+
+                </div>
+
+
+                <div class="field">
+
+                    <label for="pictureInput">
+                        Picture
+                    </label>
+
+                    <input
+                        id="pictureInput"
+                        type="file"
+                        accept="image/*"
+                    >
+
+                </div>
+
+
+                <div class="admin-actions">
+
+                    <button
+                        class="admin-action primary"
+                        onclick="publishPicture()"
+                    >
+                        Publish
+                    </button>
+
+
+                    <button
+                        class="admin-action secondary"
+                        onclick="returnToAdminMenu()"
+                    >
+                        Back
+                    </button>
+
+                </div>
+
+
+                <p
+                    id="pictureMessage"
+                    class="message"
+                ></p>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 MANAGE / REMOVE AREA
+            ================================================== -->
+
+            <div
+                id="manageArea"
+            >
+
+                <h2>
+                    Manage Projects
+                </h2>
+
+
+                <p class="admin-subtitle">
+                    Remove projects from this browser's project list.
+                </p>
+
+
+                <div
+                    id="manageList"
+                    class="manage-list"
+                ></div>
+
+
+                <div class="admin-actions">
+
+                    <button
+                        class="admin-action secondary"
+                        onclick="returnToAdminMenu()"
+                    >
+                        Back
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================================================
          JAVASCRIPT
-         ===================================== -->
+    ========================================================== -->
 
     <script>
 
-        /*
-            This page is intentionally NOT using
-            localStorage.
 
-            Projects are part of the actual website
-            source code / GitHub repository.
+        /* =========================================================
+           ADMIN PASSWORD
+        ========================================================== */
 
-            Therefore every visitor sees the same
-            projects after the updated files are pushed
-            to GitHub.
-        */
+        const ADMIN_PASSWORD =
+            "ChengChong123";
 
 
         /*
-            Removes the "Projects are coming soon"
-            message automatically once the first
-            real project is added.
+            IMPORTANT:
+
+            This password is inside frontend JavaScript.
+
+            Therefore it is NOT a truly secret password.
+            Anyone technically able to inspect the site's
+            source can find it.
+
+            This is only a simple owner convenience gate.
         */
 
-        const projectsList =
-            document.getElementById(
-                "projectsList"
-            );
 
 
-        function updateEmptyMessage() {
+        /* =========================================================
+           STORAGE
+        ========================================================== */
 
-            const realProjects =
-                projectsList.querySelectorAll(
-                    ".project-card"
+        const STORAGE_KEY =
+            "AP_FL_ADMIN_PROJECTS";
+
+
+        /*
+            This is browser-local storage.
+
+            It is useful for testing your project-management UI,
+            but it does NOT publish projects to every visitor.
+
+            Your permanent public projects still belong in
+            projects.html and must be pushed to GitHub.
+        */
+
+
+
+        /* =========================================================
+           GET PROJECTS
+        ========================================================== */
+
+        function getProjects() {
+
+            try {
+
+                const saved =
+                    localStorage.getItem(
+                        STORAGE_KEY
+                    );
+
+
+                if (!saved) {
+
+                    return [];
+                }
+
+
+                const projects =
+                    JSON.parse(saved);
+
+
+                if (!Array.isArray(projects)) {
+
+                    return [];
+                }
+
+
+                return projects;
+
+            } catch (error) {
+
+                console.error(
+                    "Could not read project storage:",
+                    error
                 );
 
 
-            const emptyMessage =
-                projectsList.querySelector(
-                    ".empty"
-                );
-
-
-            if (
-                realProjects.length > 0 &&
-                emptyMessage
-            ) {
-
-                emptyMessage.remove();
+                return [];
             }
         }
 
 
-        updateEmptyMessage();
+
+        /* =========================================================
+           SAVE PROJECTS
+        ========================================================== */
+
+        function saveProjects(projects) {
+
+            localStorage.setItem(
+
+                STORAGE_KEY,
+
+                JSON.stringify(projects)
+            );
+        }
 
 
-        /*
-            Run Prism after the page loads
-            so real project code gets highlighted.
-        */
 
-        if (
-            typeof Prism !== "undefined"
+        /* =========================================================
+           LANGUAGE → PRISM CLASS
+        ========================================================== */
+
+        function prismLanguage(language) {
+
+            const map = {
+
+                "Python":
+                    "python",
+
+                "Java":
+                    "java",
+
+                "C++":
+                    "cpp",
+
+                "HTML":
+                    "markup",
+
+                "CSS":
+                    "css"
+
+            };
+
+
+            return map[language] || "none";
+        }
+
+
+
+        /* =========================================================
+           RENDER ALL PROJECTS
+        ========================================================== */
+
+        function renderProjects() {
+
+            const projects =
+                getProjects();
+
+
+            const container =
+                document.getElementById(
+                    "projectsList"
+                );
+
+
+            container.innerHTML = "";
+
+
+            /*
+                No fake PROJECT#1.
+
+                The FIRST REAL project added by you
+                becomes PROJECT#1.
+            */
+
+
+            if (
+                projects.length === 0
+            ) {
+
+                const empty =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                empty.className =
+                    "empty-box";
+
+
+                empty.innerHTML = `
+
+                    <h2>
+                        No projects yet.
+                    </h2>
+
+                    <p>
+                        Your real projects will appear here
+                        as you add them.
+                    </p>
+
+                `;
+
+
+                container.appendChild(
+                    empty
+                );
+
+
+                return;
+            }
+
+
+
+            /*
+                Automatic numbering:
+
+                index 0 → PROJECT#1
+                index 1 → PROJECT#2
+                index 36 → PROJECT#37
+            */
+
+            projects.forEach(
+                function(project, index) {
+
+                    createProjectCard(
+                        project,
+                        index + 1,
+                        container
+                    );
+
+                }
+            );
+
+
+            /*
+                Apply syntax highlighting
+                after creating the code boxes.
+            */
+
+            if (
+                typeof Prism !== "undefined"
+            ) {
+
+                Prism.highlightAll();
+            }
+        }
+
+
+
+        /* =========================================================
+           CREATE PROJECT CARD
+        ========================================================== */
+
+        function createProjectCard(
+            project,
+            projectNumber,
+            container
         ) {
 
-            Prism.highlightAll();
+            const card =
+                document.createElement(
+                    "article"
+                );
+
+
+            card.className =
+                "project-card";
+
+
+
+            /* PROJECT NUMBER */
+
+            const number =
+                document.createElement(
+                    "div"
+                );
+
+
+            number.className =
+                "project-number";
+
+
+            number.textContent =
+                "PROJECT#" +
+                projectNumber;
+
+
+            card.appendChild(
+                number
+            );
+
+
+
+            /* TITLE */
+
+            const title =
+                document.createElement(
+                    "h2"
+                );
+
+
+            title.className =
+                "project-title";
+
+
+            title.textContent =
+                project.title ||
+                "Untitled Project";
+
+
+            card.appendChild(
+                title
+            );
+
+
+
+            /* DESCRIPTION */
+
+            const description =
+                document.createElement(
+                    "p"
+                );
+
+
+            description.className =
+                "project-description";
+
+
+            description.textContent =
+                project.description ||
+                "";
+
+
+            card.appendChild(
+                description
+            );
+
+
+
+            /* =====================================================
+               PROGRAM PROJECT
+            ====================================================== */
+
+            if (
+                project.type ===
+                "program"
+            ) {
+
+                const language =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                language.className =
+                    "language-tag";
+
+
+                language.textContent =
+                    project.language;
+
+
+                card.appendChild(
+                    language
+                );
+
+
+
+                const wrapper =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                wrapper.className =
+                    "code-wrapper";
+
+
+
+                const header =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                header.className =
+                    "code-header";
+
+
+                header.innerHTML = `
+
+                    <span>
+                        ${escapeHTML(project.language)}
+                    </span>
+
+                    <span>
+                        Code
+                    </span>
+
+                `;
+
+
+                wrapper.appendChild(
+                    header
+                );
+
+
+
+                const codeContent =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                codeContent.className =
+                    "code-content";
+
+
+                const pre =
+                    document.createElement(
+                        "pre"
+                    );
+
+
+                const code =
+                    document.createElement(
+                        "code"
+                    );
+
+
+                code.className =
+                    "language-" +
+                    prismLanguage(
+                        project.language
+                    );
+
+
+                /*
+                    textContent prevents the code itself
+                    from being executed as HTML/JavaScript.
+                */
+
+                code.textContent =
+                    project.code || "";
+
+
+                pre.appendChild(
+                    code
+                );
+
+
+                codeContent.appendChild(
+                    pre
+                );
+
+
+                wrapper.appendChild(
+                    codeContent
+                );
+
+
+                card.appendChild(
+                    wrapper
+                );
+            }
+
+
+
+            /* =====================================================
+               PICTURE PROJECT
+            ====================================================== */
+
+            if (
+                project.type ===
+                "picture"
+            ) {
+
+                if (
+                    project.image
+                ) {
+
+                    const image =
+                        document.createElement(
+                            "img"
+                        );
+
+
+                    image.className =
+                        "project-image";
+
+
+                    image.src =
+                        project.image;
+
+
+                    image.alt =
+                        project.title ||
+                        "Project picture";
+
+
+                    card.appendChild(
+                        image
+                    );
+                }
+            }
+
+
+
+            container.appendChild(
+                card
+            );
         }
+
+
+
+        /* =========================================================
+           HTML ESCAPE
+        ========================================================== */
+
+        function escapeHTML(value) {
+
+            return String(value)
+
+                .replace(
+                    /&/g,
+                    "&amp;"
+                )
+
+                .replace(
+                    /</g,
+                    "&lt;"
+                )
+
+                .replace(
+                    />/g,
+                    "&gt;"
+                )
+
+                .replace(
+                    /"/g,
+                    "&quot;"
+                )
+
+                .replace(
+                    /'/g,
+                    "&#039;"
+                );
+        }
+
+
+
+        /* =========================================================
+           OPEN ADMIN
+        ========================================================== */
+
+        function openAdmin() {
+
+            document.getElementById(
+                "adminOverlay"
+            ).style.display =
+                "block";
+
+
+            showOnly(
+                "passwordScreen"
+            );
+
+
+            document.getElementById(
+                "passwordInput"
+            ).value = "";
+
+
+            document.getElementById(
+                "passwordMessage"
+            ).textContent = "";
+        }
+
+
+
+        /* =========================================================
+           CLOSE ADMIN
+        ========================================================== */
+
+        function closeAdmin() {
+
+            document.getElementById(
+                "adminOverlay"
+            ).style.display =
+                "none";
+        }
+
+
+
+        /* =========================================================
+           SHOW ONE ADMIN SCREEN
+        ========================================================== */
+
+        function showOnly(screenID) {
+
+            const screens = [
+
+                "passwordScreen",
+
+                "adminMenu",
+
+                "programForm",
+
+                "pictureForm",
+
+                "manageArea"
+
+            ];
+
+
+            screens.forEach(
+                function(id) {
+
+                    document.getElementById(
+                        id
+                    ).style.display =
+                        "none";
+
+                }
+            );
+
+
+            document.getElementById(
+                screenID
+            ).style.display =
+                "block";
+        }
+
+
+
+        /* =========================================================
+           PASSWORD CHECK
+        ========================================================== */
+
+        function checkPassword() {
+
+            const entered =
+                document.getElementById(
+                    "passwordInput"
+                ).value;
+
+
+            const message =
+                document.getElementById(
+                    "passwordMessage"
+                );
+
+
+            if (
+                entered ===
+                ADMIN_PASSWORD
+            ) {
+
+                message.textContent =
+                    "";
+
+
+                showOnly(
+                    "adminMenu"
+                );
+
+            } else {
+
+                message.textContent =
+                    "Incorrect password.";
+
+
+                message.className =
+                    "message error";
+            }
+        }
+
+
+
+        /* =========================================================
+           LOGOUT
+        ========================================================== */
+
+        function logoutAdmin() {
+
+            document.getElementById(
+                "passwordInput"
+            ).value = "";
+
+
+            showOnly(
+                "passwordScreen"
+            );
+        }
+
+
+
+        /* =========================================================
+           RETURN TO ADMIN MENU
+        ========================================================== */
+
+        function returnToAdminMenu() {
+
+            showOnly(
+                "adminMenu"
+            );
+        }
+
+
+
+        /* =========================================================
+           OPEN PROGRAM FORM
+        ========================================================== */
+
+        function openProgramForm() {
+
+            showOnly(
+                "programForm"
+            );
+
+
+            document.getElementById(
+                "programMessage"
+            ).textContent = "";
+        }
+
+
+
+        /* =========================================================
+           OPEN PICTURE FORM
+        ========================================================== */
+
+        function openPictureForm() {
+
+            showOnly(
+                "pictureForm"
+            );
+
+
+            document.getElementById(
+                "pictureMessage"
+            ).textContent = "";
+        }
+
+
+
+        /* =========================================================
+           PUBLISH PROGRAM
+        ========================================================== */
+
+        function publishProgram() {
+
+            const title =
+                document.getElementById(
+                    "programTitle"
+                ).value.trim();
+
+
+            const description =
+                document.getElementById(
+                    "programDescription"
+                ).value.trim();
+
+
+            const language =
+                document.getElementById(
+                    "languageSelect"
+                ).value;
+
+
+            const code =
+                document.getElementById(
+                    "codeInput"
+                ).value;
+
+
+            const message =
+                document.getElementById(
+                    "programMessage"
+                );
+
+
+            if (
+                !title ||
+                !description ||
+                !code.trim()
+            ) {
+
+                message.textContent =
+                    "Please complete the title, description, and program.";
+
+
+                message.className =
+                    "message error";
+
+
+                return;
+            }
+
+
+
+            const projects =
+                getProjects();
+
+
+            projects.push({
+
+                type:
+                    "program",
+
+                title:
+                    title,
+
+                description:
+                    description,
+
+                language:
+                    language,
+
+                code:
+                    code,
+
+                createdAt:
+                    new Date().toISOString()
+
+            });
+
+
+            saveProjects(
+                projects
+            );
+
+
+            renderProjects();
+
+
+            const projectNumber =
+                projects.length;
+
+
+            message.textContent =
+                "Published locally as PROJECT#" +
+                projectNumber +
+                ".";
+
+
+            message.className =
+                "message success";
+
+
+            clearProgramForm();
+
+
+            /*
+                Keep admin interface open
+                so you can add another project.
+            */
+
+            setTimeout(
+                function() {
+
+                    returnToAdminMenu();
+
+                },
+                700
+            );
+        }
+
+
+
+        /* =========================================================
+           PUBLISH PICTURE
+        ========================================================== */
+
+        function publishPicture() {
+
+            const title =
+                document.getElementById(
+                    "pictureTitle"
+                ).value.trim();
+
+
+            const description =
+                document.getElementById(
+                    "pictureDescription"
+                ).value.trim();
+
+
+            const input =
+                document.getElementById(
+                    "pictureInput"
+                );
+
+
+            const file =
+                input.files[0];
+
+
+            const message =
+                document.getElementById(
+                    "pictureMessage"
+                );
+
+
+            if (
+                !title ||
+                !description ||
+                !file
+            ) {
+
+                message.textContent =
+                    "Please complete the title, description, and picture.";
+
+
+                message.className =
+                    "message error";
+
+
+                return;
+            }
+
+
+
+            const reader =
+                new FileReader();
+
+
+            reader.onload =
+                function(event) {
+
+                    const projects =
+                        getProjects();
+
+
+                    projects.push({
+
+                        type:
+                            "picture",
+
+                        title:
+                            title,
+
+                        description:
+                            description,
+
+                        image:
+                            event.target.result,
+
+                        createdAt:
+                            new Date().toISOString()
+
+                    });
+
+
+                    saveProjects(
+                        projects
+                    );
+
+
+                    renderProjects();
+
+
+                    const projectNumber =
+                        projects.length;
+
+
+                    message.textContent =
+                        "Published locally as PROJECT#" +
+                        projectNumber +
+                        ".";
+
+
+                    message.className =
+                        "message success";
+
+
+                    clearPictureForm();
+
+
+                    setTimeout(
+                        function() {
+
+                            returnToAdminMenu();
+
+                        },
+                        700
+                    );
+                };
+
+
+            reader.onerror =
+                function() {
+
+                    message.textContent =
+                        "The picture could not be read.";
+
+                    message.className =
+                        "message error";
+                };
+
+
+            reader.readAsDataURL(
+                file
+            );
+        }
+
+
+
+        /* =========================================================
+           CLEAR PROGRAM FORM
+        ========================================================== */
+
+        function clearProgramForm() {
+
+            document.getElementById(
+                "programTitle"
+            ).value = "";
+
+
+            document.getElementById(
+                "programDescription"
+            ).value = "";
+
+
+            document.getElementById(
+                "codeInput"
+            ).value = "";
+
+
+            document.getElementById(
+                "languageSelect"
+            ).value =
+                "Python";
+        }
+
+
+
+        /* =========================================================
+           CLEAR PICTURE FORM
+        ========================================================== */
+
+        function clearPictureForm() {
+
+            document.getElementById(
+                "pictureTitle"
+            ).value = "";
+
+
+            document.getElementById(
+                "pictureDescription"
+            ).value = "";
+
+
+            document.getElementById(
+                "pictureInput"
+            ).value = "";
+        }
+
+
+
+        /* =========================================================
+           OPEN MANAGE / REMOVE
+        ========================================================== */
+
+        function openManageArea() {
+
+            showOnly(
+                "manageArea"
+            );
+
+
+            renderManageList();
+        }
+
+
+
+        /* =========================================================
+           RENDER REMOVE LIST
+        ========================================================== */
+
+        function renderManageList() {
+
+            const projects =
+                getProjects();
+
+
+            const list =
+                document.getElementById(
+                    "manageList"
+                );
+
+
+            list.innerHTML = "";
+
+
+            if (
+                projects.length === 0
+            ) {
+
+                list.innerHTML = `
+
+                    <p style="color:#777;">
+                        There are no projects to remove.
+                    </p>
+
+                `;
+
+
+                return;
+            }
+
+
+
+            projects.forEach(
+                function(project, index) {
+
+                    const item =
+                        document.createElement(
+                            "div"
+                        );
+
+
+                    item.className =
+                        "manage-item";
+
+
+
+                    const information =
+                        document.createElement(
+                            "div"
+                        );
+
+
+                    information.className =
+                        "manage-info";
+
+
+                    const number =
+                        document.createElement(
+                            "div"
+                        );
+
+
+                    number.className =
+                        "manage-project-number";
+
+
+                    number.textContent =
+                        "PROJECT#" +
+                        (index + 1);
+
+
+                    const title =
+                        document.createElement(
+                            "div"
+                        );
+
+
+                    title.className =
+                        "manage-project-title";
+
+
+                    title.textContent =
+                        project.title ||
+                        "Untitled Project";
+
+
+                    information.appendChild(
+                        number
+                    );
+
+
+                    information.appendChild(
+                        title
+                    );
+
+
+
+                    const remove =
+                        document.createElement(
+                            "button"
+                        );
+
+
+                    remove.className =
+                        "remove-small";
+
+
+                    remove.textContent =
+                        "Remove";
+
+
+                    remove.onclick =
+                        function() {
+
+                            removeProject(
+                                index
+                            );
+
+                        };
+
+
+                    item.appendChild(
+                        information
+                    );
+
+
+                    item.appendChild(
+                        remove
+                    );
+
+
+                    list.appendChild(
+                        item
+                    );
+
+                }
+            );
+        }
+
+
+
+        /* =========================================================
+           REMOVE PROJECT
+        ========================================================== */
+
+        function removeProject(index) {
+
+            const projects =
+                getProjects();
+
+
+            const project =
+                projects[index];
+
+
+            if (!project) {
+
+                return;
+            }
+
+
+            const confirmed =
+                confirm(
+
+                    "Remove PROJECT#" +
+                    (index + 1) +
+                    " — " +
+                    project.title +
+                    "?"
+
+                );
+
+
+            if (!confirmed) {
+
+                return;
+            }
+
+
+            projects.splice(
+                index,
+                1
+            );
+
+
+            saveProjects(
+                projects
+            );
+
+
+            renderProjects();
+
+
+            renderManageList();
+
+
+            alert(
+                "Project removed from this browser."
+            );
+        }
+
+
+
+        /* =========================================================
+           ENTER KEY SUPPORT FOR PASSWORD
+        ========================================================== */
+
+        document
+            .getElementById(
+                "passwordInput"
+            )
+            .addEventListener(
+                "keydown",
+                function(event) {
+
+                    if (
+                        event.key ===
+                        "Enter"
+                    ) {
+
+                        checkPassword();
+                    }
+
+                }
+            );
+
+
+
+        /* =========================================================
+           INITIAL PAGE LOAD
+        ========================================================== */
+
+        renderProjects();
 
     </script>
 
