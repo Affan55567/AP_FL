@@ -1,2845 +1,957 @@
-```html
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-    <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <title>AP_FL.com — Projects</title>
-
-
-    <!-- =========================================================
-         PRISM.JS
-         Syntax highlighting for:
-         Python, Java, C++, HTML and CSS
-    ========================================================== -->
-
-    <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css"
-    >
-
-    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-markup.min.js"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-css.min.js"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-clike.min.js"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-java.min.js"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-cpp.min.js"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
-
-
-    <style>
-
-        /* =========================================================
-           RESET
-        ========================================================== */
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-
-        body {
-            background: #111111;
-            color: #ffffff;
-
-            font-family:
-                Arial,
-                Helvetica,
-                sans-serif;
-
-            line-height: 1.6;
-
-            min-height: 100vh;
-        }
-
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-
-        button,
-        input,
-        textarea,
-        select {
-            font: inherit;
-        }
-
-
-        .container {
-            width: 90%;
-            max-width: 1150px;
-            margin: auto;
-        }
-
-
-
-        /* =========================================================
-           NAVBAR
-        ========================================================== */
-
-        header {
-
-            position: sticky;
-
-            top: 0;
-
-            z-index: 1000;
-
-            background:
-                rgba(17, 17, 17, 0.95);
-
-            backdrop-filter:
-                blur(12px);
-
-            border-bottom:
-                1px solid #333333;
-        }
-
-
-        .topbar {
-
-            min-height: 78px;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: space-between;
-
-            gap: 20px;
-        }
-
-
-        .logo {
-
-            font-size: 28px;
-
-            font-weight: 900;
-
-            letter-spacing: 0.5px;
-        }
-
-
-        nav {
-
-            display: flex;
-
-            align-items: center;
-
-            gap: 24px;
-
-            flex-wrap: wrap;
-        }
-
-
-        nav a {
-
-            color: #cccccc;
-
-            transition:
-                color 0.2s ease;
-        }
-
-
-        nav a:hover {
-
-            color: #ffffff;
-        }
-
-
-
-        /* =========================================================
-           HERO
-        ========================================================== */
-
-        .hero {
-
-            padding:
-                80px 0 45px;
-        }
-
-
-        .hero-box {
-
-            background: #ffffff;
-
-            color: #111111;
-
-            border-radius: 26px;
-
-            padding: 55px;
-
-            box-shadow:
-                0 25px 60px
-                rgba(0, 0, 0, 0.35);
-        }
-
-
-        .hero-box h1 {
-
-            font-size:
-                clamp(45px, 8vw, 80px);
-
-            line-height: 1;
-
-            margin-bottom: 18px;
-        }
-
-
-        .hero-box p {
-
-            color: #444444;
-
-            font-size: 18px;
-
-            max-width: 800px;
-        }
-
-
-
-        /* =========================================================
-           PROJECT AREA
-        ========================================================== */
-
-        #projectsArea {
-
-            padding:
-                25px 0 90px;
-        }
-
-
-        #projectsList {
-
-            display: flex;
-
-            flex-direction: column;
-
-            gap: 30px;
-        }
-
-
-
-        /* =========================================================
-           PROJECT CARD
-        ========================================================== */
-
-        .project-card {
-
-            position: relative;
-
-            background: #ffffff;
-
-            color: #111111;
-
-            border-radius: 24px;
-
-            padding: 34px;
-
-            box-shadow:
-                0 18px 45px
-                rgba(0, 0, 0, 0.30);
-
-            animation:
-                projectAppear 0.4s ease;
-        }
-
-
-        @keyframes projectAppear {
-
-            from {
-
-                opacity: 0;
-
-                transform:
-                    translateY(15px);
-            }
-
-
-            to {
-
-                opacity: 1;
-
-                transform:
-                    translateY(0);
-            }
-        }
-
-
-        .project-number {
-
-            color: #666666;
-
-            font-size: 13px;
-
-            font-weight: 900;
-
-            letter-spacing: 3px;
-
-            margin-bottom: 8px;
-        }
-
-
-        .project-title {
-
-            font-size: 31px;
-
-            margin-bottom: 12px;
-
-            word-break: break-word;
-        }
-
-
-        .project-description {
-
-            color: #444444;
-
-            font-size: 17px;
-
-            white-space: pre-wrap;
-
-            word-break: break-word;
-
-            margin-bottom: 20px;
-        }
-
-
-
-        /* =========================================================
-           LANGUAGE TAG
-        ========================================================== */
-
-        .language-tag {
-
-            display: inline-block;
-
-            background: #111111;
-
-            color: #ffffff;
-
-            border-radius: 999px;
-
-            padding:
-                6px 13px;
-
-            margin-bottom: 18px;
-
-            font-size: 13px;
-
-            font-weight: 800;
-        }
-
-
-
-        /* =========================================================
-           CODE BOX
-        ========================================================== */
-
-        .code-wrapper {
-
-            width: 100%;
-
-            border-radius: 16px;
-
-            overflow: hidden;
-
-            border:
-                1px solid #333333;
-
-            background: #1e1e1e;
-        }
-
-
-        .code-header {
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: space-between;
-
-            gap: 15px;
-
-            padding:
-                12px 16px;
-
-            background: #181818;
-
-            border-bottom:
-                1px solid #333333;
-
-            color: #aaaaaa;
-
-            font-size: 13px;
-        }
-
-
-        .code-content {
-
-            max-width: 100%;
-
-            max-height: 850px;
-
-            overflow: auto;
-        }
-
-
-        .code-content pre {
-
-            margin: 0;
-
-            min-width: max-content;
-
-            padding: 22px;
-
-            font-family:
-                Consolas,
-                "Courier New",
-                monospace;
-
-            font-size: 14px;
-
-            line-height: 1.55;
-
-            white-space: pre;
-        }
-
-
-
-        /* =========================================================
-           PICTURE PROJECT
-        ========================================================== */
-
-        .project-image {
-
-            display: block;
-
-            width: 100%;
-
-            max-height: 750px;
-
-            object-fit: contain;
-
-            border-radius: 16px;
-
-            background: #eeeeee;
-        }
-
-
-
-        /* =========================================================
-           EMPTY STATE
-        ========================================================== */
-
-        .empty-box {
-
-            background: #1a1a1a;
-
-            border:
-                1px solid #333333;
-
-            border-radius: 22px;
-
-            padding: 55px;
-
-            text-align: center;
-
-            color: #999999;
-        }
-
-
-        .empty-box h2 {
-
-            color: #ffffff;
-
-            margin-bottom: 10px;
-        }
-
-
-
-        /* =========================================================
-           ADMIN BUTTON
-        ========================================================== */
-
-        .admin-button {
-
-            position: fixed;
-
-            right: 25px;
-
-            bottom: 25px;
-
-            z-index: 2000;
-
-            width: 62px;
-
-            height: 62px;
-
-            border: none;
-
-            border-radius: 50%;
-
-            background: #ffffff;
-
-            color: #111111;
-
-            font-size: 34px;
-
-            font-weight: 800;
-
-            cursor: pointer;
-
-            box-shadow:
-                0 15px 35px
-                rgba(0, 0, 0, 0.45);
-
-            transition:
-                transform 0.2s ease;
-        }
-
-
-        .admin-button:hover {
-
-            transform:
-                scale(1.08);
-        }
-
-
-
-        /* =========================================================
-           ADMIN OVERLAY
-        ========================================================== */
-
-        .overlay {
-
-            display: none;
-
-            position: fixed;
-
-            inset: 0;
-
-            z-index: 5000;
-
-            background:
-                rgba(0, 0, 0, 0.80);
-
-            padding: 20px;
-
-            overflow-y: auto;
-        }
-
-
-        .admin-panel {
-
-            width: 100%;
-
-            max-width: 760px;
-
-            margin:
-                35px auto;
-
-            padding: 34px;
-
-            background: #ffffff;
-
-            color: #111111;
-
-            border-radius: 24px;
-
-            box-shadow:
-                0 30px 80px
-                rgba(0, 0, 0, 0.45);
-        }
-
-
-        .admin-panel h2 {
-
-            font-size: 30px;
-
-            margin-bottom: 8px;
-        }
-
-
-        .admin-panel h3 {
-
-            font-size: 22px;
-
-            margin-bottom: 10px;
-        }
-
-
-        .admin-subtitle {
-
-            color: #666666;
-
-            margin-bottom: 25px;
-        }
-
-
-
-        /* =========================================================
-           ADMIN INPUTS
-        ========================================================== */
-
-        .field {
-
-            margin-top: 18px;
-        }
-
-
-        .field label {
-
-            display: block;
-
-            margin-bottom: 7px;
-
-            font-weight: 800;
-        }
-
-
-        .field input,
-        .field textarea,
-        .field select {
-
-            width: 100%;
-
-            border:
-                1px solid #bbbbbb;
-
-            border-radius: 11px;
-
-            padding: 13px;
-
-            background: #ffffff;
-
-            color: #111111;
-
-            outline: none;
-        }
-
-
-        .field input:focus,
-        .field textarea:focus,
-        .field select:focus {
-
-            border-color: #111111;
-        }
-
-
-        .field textarea {
-
-            min-height: 150px;
-
-            resize: vertical;
-        }
-
-
-        /* HUGE CODE EDITOR */
-
-        #codeInput {
-
-            min-height: 420px;
-
-            resize: vertical;
-
-            font-family:
-                Consolas,
-                "Courier New",
-                monospace;
-
-            font-size: 14px;
-
-            line-height: 1.55;
-
-            white-space: pre;
-
-            tab-size: 4;
-        }
-
-
-        .help-text {
-
-            margin-top: 6px;
-
-            font-size: 13px;
-
-            color: #777777;
-        }
-
-
-
-        /* =========================================================
-           ADMIN MODE CHOICE
-        ========================================================== */
-
-        .choice-grid {
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(2, 1fr);
-
-            gap: 14px;
-
-            margin-top: 20px;
-        }
-
-
-        .choice-button {
-
-            padding: 22px;
-
-            border:
-                2px solid #111111;
-
-            border-radius: 15px;
-
-            background: #ffffff;
-
-            color: #111111;
-
-            cursor: pointer;
-
-            font-weight: 900;
-
-            font-size: 16px;
-
-            transition:
-                background 0.2s ease,
-                color 0.2s ease,
-                transform 0.2s ease;
-        }
-
-
-        .choice-button:hover {
-
-            background: #111111;
-
-            color: #ffffff;
-
-            transform:
-                translateY(-2px);
-        }
-
-
-
-        /* =========================================================
-           ADMIN BUTTONS
-        ========================================================== */
-
-        .admin-actions {
-
-            display: flex;
-
-            flex-wrap: wrap;
-
-            gap: 10px;
-
-            margin-top: 22px;
-        }
-
-
-        .admin-action {
-
-            border: none;
-
-            border-radius: 10px;
-
-            padding:
-                12px 18px;
-
-            cursor: pointer;
-
-            font-weight: 800;
-        }
-
-
-        .primary {
-
-            background: #111111;
-
-            color: #ffffff;
-        }
-
-
-        .secondary {
-
-            background: #dddddd;
-
-            color: #111111;
-        }
-
-
-        .danger {
-
-            background: #191919;
-
-            color: #ffffff;
-
-            border:
-                1px solid #666666;
-        }
-
-
-
-        /* =========================================================
-           ADMIN REMOVE LIST
-        ========================================================== */
-
-        #manageArea {
-
-            display: none;
-        }
-
-
-        .manage-list {
-
-            margin-top: 20px;
-        }
-
-
-        .manage-item {
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: space-between;
-
-            gap: 15px;
-
-            padding: 14px;
-
-            margin-bottom: 10px;
-
-            background: #f0f0f0;
-
-            border-radius: 11px;
-        }
-
-
-        .manage-info {
-
-            min-width: 0;
-        }
-
-
-        .manage-project-number {
-
-            font-size: 12px;
-
-            font-weight: 900;
-
-            color: #777777;
-
-            letter-spacing: 1px;
-        }
-
-
-        .manage-project-title {
-
-            font-weight: 800;
-
-            word-break: break-word;
-        }
-
-
-        .remove-small {
-
-            flex-shrink: 0;
-
-            border: none;
-
-            padding:
-                9px 13px;
-
-            border-radius: 8px;
-
-            cursor: pointer;
-
-            background: #111111;
-
-            color: #ffffff;
-
-            font-weight: 800;
-        }
-
-
-
-        /* =========================================================
-           MESSAGES
-        ========================================================== */
-
-        .message {
-
-            margin-top: 12px;
-
-            font-weight: 800;
-        }
-
-
-        .error {
-
-            color: #b00000;
-        }
-
-
-        .success {
-
-            color: #167000;
-        }
-
-
-
-        /* =========================================================
-           FOOTER
-        ========================================================== */
-
-        footer {
-
-            margin-top: 60px;
-
-            border-top:
-                1px solid #333333;
-
-            padding:
-                40px 0 55px;
-
-            color: #888888;
-
-            text-align: center;
-        }
-
-
-
-        /* =========================================================
-           MOBILE
-        ========================================================== */
-
-        @media (max-width: 700px) {
-
-            .topbar {
-
-                flex-direction: column;
-
-                padding:
-                    16px 0;
-            }
-
-
-            nav {
-
-                justify-content: center;
-            }
-
-
-            .hero-box,
-            .project-card,
-            .admin-panel {
-
-                padding: 26px;
-            }
-
-
-            .hero {
-
-                padding-top: 50px;
-            }
-
-
-            .choice-grid {
-
-                grid-template-columns: 1fr;
-            }
-
-
-            .manage-item {
-
-                flex-direction: column;
-
-                align-items: stretch;
-            }
-
-
-            .remove-small {
-
-                width: 100%;
-            }
-
-
-            .project-title {
-
-                font-size: 26px;
-            }
-
-        }
-
-    </style>
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#111111">
+<title>AP_FL.com | Projects</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+
+<style>
+:root {
+    color-scheme: dark;
+    --bg: #111;
+    --panel: #1b1b1b;
+    --panel-light: #252525;
+    --text: #f5f5f5;
+    --muted: #aaa;
+    --border: #383838;
+    --danger: #ff5c5c;
+    --success: #76e39a;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+}
+
+button, input, select, textarea { font: inherit; }
+button { cursor: pointer; }
+a { color: inherit; }
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: rgba(17,17,17,.96);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(12px);
+}
+
+.navbar {
+    max-width: 1200px;
+    margin: auto;
+    padding: 15px 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 18px;
+}
+
+.logo {
+    font-size: 1.3rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+}
+
+.nav-links a {
+    color: #ddd;
+    text-decoration: none;
+}
+
+.nav-links a:hover { color: white; }
+
+.hero {
+    max-width: 1200px;
+    margin: auto;
+    padding: 65px 22px 35px;
+}
+
+.eyebrow {
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: .8rem;
+    font-weight: bold;
+}
+
+.hero h1 {
+    margin: 10px 0;
+    font-size: clamp(2.2rem, 6vw, 4.2rem);
+    line-height: 1.1;
+}
+
+.hero p {
+    max-width: 680px;
+    color: var(--muted);
+    font-size: 1.05rem;
+}
+
+.container {
+    max-width: 1200px;
+    padding: 0 22px 65px;
+    margin: auto;
+}
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin: 24px 0;
+}
+
+.section-heading h2 { margin: 0; font-size: 1.8rem; }
+.section-heading p { color: var(--muted); margin: 5px 0 0; }
+
+.toolbar {
+    display: grid;
+    grid-template-columns: minmax(200px, 1fr) minmax(150px, 220px);
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.field {
+    width: 100%;
+    padding: 12px 14px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    color: white;
+}
+
+.field::placeholder { color: #888; }
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+    gap: 20px;
+}
+
+.project-card {
+    min-width: 0;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: transform .2s, border-color .2s;
+}
+
+.project-card:hover {
+    transform: translateY(-3px);
+    border-color: #777;
+}
+
+.project-image {
+    display: block;
+    width: 100%;
+    max-height: 230px;
+    object-fit: cover;
+    background: var(--panel-light);
+}
+
+.project-image-placeholder {
+    height: 120px;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(135deg,#292929,#141414);
+    color: #aaa;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.project-content { padding: 20px; }
+
+.project-topline {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.project-number {
+    color: var(--muted);
+    font-size: .8rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.project-language {
+    padding: 4px 9px;
+    border: 1px solid #555;
+    border-radius: 20px;
+    color: #ddd;
+    font-size: .75rem;
+}
+
+.project-card h3 { margin: 12px 0 8px; overflow-wrap: anywhere; }
+
+.project-description {
+    color: #bbb;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+.code-details { margin-top: 16px; border-top: 1px solid var(--border); padding-top: 12px; }
+.code-details summary { cursor: pointer; font-weight: bold; }
+.code-box { position: relative; margin-top: 12px; }
+
+.code-box pre {
+    max-height: 420px;
+    overflow: auto;
+    border-radius: 10px;
+    font-size: .82rem;
+}
+
+.actions { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 16px; }
+
+.btn {
+    padding: 10px 14px;
+    border: 1px solid #555;
+    border-radius: 9px;
+    background: #eee;
+    color: #111;
+    font-weight: bold;
+}
+
+.btn:hover { background: white; }
+.btn-secondary { background: #282828; color: white; }
+.btn-secondary:hover { background: #393939; }
+.btn-danger { background: #451e1e; border-color: #733; color: white; }
+
+.status {
+    margin: 16px 0;
+    padding: 12px 14px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    color: #ddd;
+    overflow-wrap: anywhere;
+}
+
+.status:empty { display: none; }
+.status.error { color: #ffaaaa; border-color: #743535; }
+.status.success { color: var(--success); border-color: #326d45; }
+
+.empty-state {
+    padding: 45px 20px;
+    text-align: center;
+    color: var(--muted);
+    border: 1px dashed #444;
+    border-radius: 16px;
+}
+
+.empty-state h3 { color: white; }
+
+.admin-panel {
+    margin-top: 55px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 22px;
+}
+
+.admin-panel h2 { margin-top: 0; }
+
+.admin-toolbar { display: flex; gap: 10px; flex-wrap: wrap; margin: 14px 0; }
+
+.admin-status, .small-note { color: var(--muted); font-size: .9rem; }
+
+.admin-form { display: grid; gap: 14px; margin-top: 20px; }
+.admin-form label { display: grid; gap: 6px; font-weight: bold; }
+.admin-form textarea { min-height: 120px; resize: vertical; }
+
+.admin-form .code-input {
+    min-height: 240px;
+    font-family: Consolas, Monaco, monospace;
+    font-size: .9rem;
+}
+
+.admin-form[hidden], [hidden] { display: none !important; }
+
+footer {
+    padding: 30px 20px;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    color: var(--muted);
+}
+
+footer a { color: white; }
+
+@media (max-width: 620px) {
+    .navbar { align-items: flex-start; flex-direction: column; }
+    .toolbar { grid-template-columns: 1fr; }
+    .hero { padding-top: 42px; }
+    .admin-panel { padding: 16px; }
+}
+</style>
 </head>
 
-
-
 <body>
+<header>
+<nav class="navbar" aria-label="Main navigation">
+    <a class="logo" href="index.html">AP_FL.com</a>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="projects.html" aria-current="page">Projects</a>
+    </div>
+</nav>
+</header>
 
+<main>
+<section class="hero">
+    <div class="eyebrow">Affan's Portfolio</div>
+    <h1>My Projects.</h1>
+    <p>A collection of programming projects, experiments, and automation tools. Explore descriptions and inspect the code.</p>
+</section>
 
-    <!-- =========================================================
-         NAVIGATION
-    ========================================================== -->
-
-    <header>
-
-        <div class="container topbar">
-
-            <div class="logo">
-                AP_FL.com
-            </div>
-
-
-            <nav>
-
-                <a href="index.html">
-                    Home
-                </a>
-
-
-                <a href="index.html#about">
-                    About
-                </a>
-
-
-                <a href="projects.html">
-                    Projects
-                </a>
-
-            </nav>
-
+<section class="container" aria-labelledby="projects-heading">
+    <div class="section-heading">
+        <div>
+            <h2 id="projects-heading">Project Library</h2>
+            <p id="project-count">Loading projects...</p>
         </div>
-
-    </header>
-
-
-
-    <!-- =========================================================
-         PAGE HEADER
-    ========================================================== -->
-
-    <main>
-
-        <section class="hero">
-
-            <div class="container">
-
-                <div class="hero-box">
-
-                    <h1>
-                        My Projects
-                    </h1>
-
-                    <p>
-                        Programming and creative work published
-                        on AP_FL.com.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =====================================================
-             PROJECTS
-        ====================================================== -->
-
-        <section id="projectsArea">
-
-            <div class="container">
-
-                <div id="projectsList"></div>
-
-            </div>
-
-        </section>
-
-    </main>
-
-
-
-    <!-- =========================================================
-         FOOTER
-    ========================================================== -->
-
-    <footer>
-
-        <p>
-            © 2026 AP_FL.com — Built by Affan
-        </p>
-
-    </footer>
-
-
-
-    <!-- =========================================================
-         PUBLIC PLUS BUTTON
-    ========================================================== -->
-
-    <button
-        class="admin-button"
-        onclick="openAdmin()"
-        aria-label="Open project management"
-    >
-        +
-    </button>
-
-
-
-    <!-- =========================================================
-         ADMIN OVERLAY
-    ========================================================== -->
-
-    <div
-        id="adminOverlay"
-        class="overlay"
-    >
-
-        <div class="admin-panel">
-
-
-            <!-- =================================================
-                 PASSWORD SCREEN
-            ================================================== -->
-
-            <div id="passwordScreen">
-
-                <h2>
-                    AP_FL Admin
-                </h2>
-
-                <p class="admin-subtitle">
-                    Enter the administrator password.
-                </p>
-
-
-                <div class="field">
-
-                    <label for="passwordInput">
-                        Password
-                    </label>
-
-                    <input
-                        id="passwordInput"
-                        type="password"
-                        autocomplete="off"
-                        placeholder="Enter password"
-                    >
-
-                </div>
-
-
-                <div class="admin-actions">
-
-                    <button
-                        class="admin-action primary"
-                        onclick="checkPassword()"
-                    >
-                        Continue
-                    </button>
-
-
-                    <button
-                        class="admin-action secondary"
-                        onclick="closeAdmin()"
-                    >
-                        Close
-                    </button>
-
-                </div>
-
-
-                <p
-                    id="passwordMessage"
-                    class="message"
-                ></p>
-
-            </div>
-
-
-
-            <!-- =================================================
-                 MAIN ADMIN MENU
-            ================================================== -->
-
-            <div
-                id="adminMenu"
-                style="display:none;"
-            >
-
-                <h2>
-                    Project Management
-                </h2>
-
-
-                <p class="admin-subtitle">
-                    Choose what you want to do.
-                </p>
-
-
-                <div class="choice-grid">
-
-                    <button
-                        class="choice-button"
-                        onclick="openProgramForm()"
-                    >
-                        💻 Add Program
-                    </button>
-
-
-                    <button
-                        class="choice-button"
-                        onclick="openPictureForm()"
-                    >
-                        🖼️ Add Picture
-                    </button>
-
-                </div>
-
-
-                <div class="admin-actions">
-
-                    <button
-                        class="admin-action danger"
-                        onclick="openManageArea()"
-                    >
-                        Manage / Remove Projects
-                    </button>
-
-
-                    <button
-                        class="admin-action secondary"
-                        onclick="logoutAdmin()"
-                    >
-                        Logout
-                    </button>
-
-
-                    <button
-                        class="admin-action secondary"
-                        onclick="closeAdmin()"
-                    >
-                        Close
-                    </button>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- =================================================
-                 PROGRAM FORM
-            ================================================== -->
-
-            <div
-                id="programForm"
-                style="display:none;"
-            >
-
-                <h2>
-                    Add Programming Project
-                </h2>
-
-
-                <p class="admin-subtitle">
-                    Add one of your real programming projects.
-                </p>
-
-
-                <div class="field">
-
-                    <label for="programTitle">
-                        Project Title
-                    </label>
-
-                    <input
-                        id="programTitle"
-                        type="text"
-                        placeholder="Example: Client Data Automation"
-                    >
-
-                </div>
-
-
-                <div class="field">
-
-                    <label for="programDescription">
-                        Description
-                    </label>
-
-                    <textarea
-                        id="programDescription"
-                        placeholder="Describe what this project does..."
-                    ></textarea>
-
-                </div>
-
-
-                <div class="field">
-
-                    <label for="languageSelect">
-                        Programming Language
-                    </label>
-
-
-                    <select id="languageSelect">
-
-                        <!-- EXACTLY FIVE OPTIONS -->
-
-                        <option value="Python">
-                            Python
-                        </option>
-
-                        <option value="Java">
-                            Java
-                        </option>
-
-                        <option value="C++">
-                            C++
-                        </option>
-
-                        <option value="HTML">
-                            HTML
-                        </option>
-
-                        <option value="CSS">
-                            CSS
-                        </option>
-
-                    </select>
-
-                </div>
-
-
-                <div class="field">
-
-                    <label for="codeInput">
-                        Program
-                    </label>
-
-
-                    <textarea
-                        id="codeInput"
-                        spellcheck="false"
-                        placeholder="Paste your program here..."
-                    ></textarea>
-
-
-                    <p class="help-text">
-                        Large programs are supported. Published code
-                        will be displayed in a scrollable syntax-highlighted box.
-                    </p>
-
-                </div>
-
-
-                <div class="admin-actions">
-
-                    <button
-                        class="admin-action primary"
-                        onclick="publishProgram()"
-                    >
-                        Publish
-                    </button>
-
-
-                    <button
-                        class="admin-action secondary"
-                        onclick="returnToAdminMenu()"
-                    >
-                        Back
-                    </button>
-
-                </div>
-
-
-                <p
-                    id="programMessage"
-                    class="message"
-                ></p>
-
-            </div>
-
-
-
-            <!-- =================================================
-                 PICTURE FORM
-            ================================================== -->
-
-            <div
-                id="pictureForm"
-                style="display:none;"
-            >
-
-                <h2>
-                    Add Picture
-                </h2>
-
-
-                <p class="admin-subtitle">
-                    Add a real project picture to the portfolio.
-                </p>
-
-
-                <div class="field">
-
-                    <label for="pictureTitle">
-                        Project Title
-                    </label>
-
-                    <input
-                        id="pictureTitle"
-                        type="text"
-                        placeholder="Example: Website Design"
-                    >
-
-                </div>
-
-
-                <div class="field">
-
-                    <label for="pictureDescription">
-                        Description
-                    </label>
-
-                    <textarea
-                        id="pictureDescription"
-                        placeholder="Describe the picture/project..."
-                    ></textarea>
-
-                </div>
-
-
-                <div class="field">
-
-                    <label for="pictureInput">
-                        Picture
-                    </label>
-
-                    <input
-                        id="pictureInput"
-                        type="file"
-                        accept="image/*"
-                    >
-
-                </div>
-
-
-                <div class="admin-actions">
-
-                    <button
-                        class="admin-action primary"
-                        onclick="publishPicture()"
-                    >
-                        Publish
-                    </button>
-
-
-                    <button
-                        class="admin-action secondary"
-                        onclick="returnToAdminMenu()"
-                    >
-                        Back
-                    </button>
-
-                </div>
-
-
-                <p
-                    id="pictureMessage"
-                    class="message"
-                ></p>
-
-            </div>
-
-
-
-            <!-- =================================================
-                 MANAGE / REMOVE AREA
-            ================================================== -->
-
-            <div
-                id="manageArea"
-            >
-
-                <h2>
-                    Manage Projects
-                </h2>
-
-
-                <p class="admin-subtitle">
-                    Remove projects from this browser's project list.
-                </p>
-
-
-                <div
-                    id="manageList"
-                    class="manage-list"
-                ></div>
-
-
-                <div class="admin-actions">
-
-                    <button
-                        class="admin-action secondary"
-                        onclick="returnToAdminMenu()"
-                    >
-                        Back
-                    </button>
-
-                </div>
-
-            </div>
-
-        </div>
-
     </div>
 
+    <div class="toolbar">
+        <input class="field" id="search-input" type="search" placeholder="Search projects..." aria-label="Search projects">
+        <select class="field" id="language-filter" aria-label="Filter by language">
+            <option value="all">All languages</option>
+            <option>Python</option>
+            <option>Java</option>
+            <option>C++</option>
+            <option>HTML</option>
+            <option>CSS</option>
+            <option>JavaScript</option>
+            <option>Other</option>
+        </select>
+    </div>
 
+    <div id="public-status" class="status" role="status" aria-live="polite"></div>
+    <div id="projects-grid" class="projects-grid"></div>
 
-    <!-- =========================================================
-         JAVASCRIPT
-    ========================================================== -->
+    <div id="empty-state" class="empty-state" hidden>
+        <h3>No projects found</h3>
+        <p>Try another search or language filter.</p>
+    </div>
 
-    <script>
+    <section class="admin-panel" aria-labelledby="admin-heading">
+        <h2 id="admin-heading">Project Admin</h2>
+        <p class="small-note">Sign in using your server-configured admin password to publish or remove projects for everyone.</p>
 
+        <div class="admin-toolbar">
+            <button class="btn" id="admin-login-button" type="button">Admin Login</button>
+            <button class="btn btn-secondary" id="admin-logout-button" type="button" hidden>Log Out</button>
+            <button class="btn btn-secondary" id="add-project-button" type="button" hidden>Add Project</button>
+        </div>
 
-        /* =========================================================
-           ADMIN PASSWORD
-        ========================================================== */
+        <p id="admin-status" class="admin-status" role="status" aria-live="polite">Admin is signed out.</p>
 
-        const ADMIN_PASSWORD =
-            "ChengChong123";
+        <form id="login-form" class="admin-form" hidden>
+            <label>Admin password
+                <input class="field" id="admin-password" type="password" autocomplete="current-password" required>
+            </label>
+            <button class="btn" type="submit">Verify Password</button>
+            <button class="btn btn-secondary" id="cancel-login-button" type="button">Cancel</button>
+        </form>
 
+        <form id="project-form" class="admin-form" hidden>
+            <h3>Add a Project</h3>
+            <label>Project title
+                <input class="field" id="project-title" maxlength="150" required>
+            </label>
+            <label>Language
+                <select class="field" id="project-language" required>
+                    <option>Python</option>
+                    <option>Java</option>
+                    <option>C++</option>
+                    <option>HTML</option>
+                    <option>CSS</option>
+                    <option>JavaScript</option>
+                    <option>Other</option>
+                </select>
+            </label>
+            <label>Description
+                <textarea class="field" id="project-description" maxlength="3000" required></textarea>
+            </label>
+            <label>Optional image URL
+                <input class="field" id="project-image" type="url" placeholder="https://example.com/image.png">
+            </label>
+            <label>Program code
+                <textarea class="field code-input" id="project-code" maxlength="200000" spellcheck="false" required></textarea>
+            </label>
+            <div class="admin-toolbar">
+                <button class="btn" type="submit" id="publish-button">Publish Project</button>
+                <button class="btn btn-secondary" id="cancel-project-button" type="button">Cancel</button>
+            </div>
+        </form>
+    </section>
+</section>
+</main>
 
-        /*
-            IMPORTANT:
+<footer>
+    <p>AP_FL.com — Built by Affan.</p>
+    <p>Keep learning. Keep building.</p>
+    <p><a href="index.html">Return to the main portfolio</a></p>
+</footer>
 
-            This password is inside frontend JavaScript.
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-java.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-c.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-cpp.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-css.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
 
-            Therefore it is NOT a truly secret password.
-            Anyone technically able to inspect the site's
-            source can find it.
+<script>
+"use strict";
 
-            This is only a simple owner convenience gate.
-        */
+/*
+CONFIGURATION
+Use your own Supabase project URL and publishable key.
+Never put a service-role key in browser JavaScript.
 
+Expected table: public.projects
+Columns: id, title, language, description, code, created_at, image_url
 
+Expected Edge Function actions:
+verify: { action: "verify", password }
+publish: { action: "publish", password, project }
+delete: { action: "delete", password, project_id }
 
-        /* =========================================================
-           STORAGE
-        ========================================================== */
+Your deployed Edge Function must implement this contract.
+*/
 
-        const STORAGE_KEY =
-            "AP_FL_PROJECTS";
+const SUPABASE_URL = "https://zogpoxtiygkpoarvxilw.supabase.co";
+const SUPABASE_PUBLISHABLE_KEY = "sb_publishable__VPVhkfaiFIbtc-IYlMBDA_A7g58b0M";
 
+const PROJECTS_API = SUPABASE_URL + "/rest/v1/projects";
+const ADMIN_API = SUPABASE_URL + "/functions/v1/admin-projects";
 
-        /*
-            This is browser-local storage.
+const state = {
+    projects: [],
+    adminPassword: "",
+    adminSignedIn: false,
+    loading: false
+};
 
-            It is useful for testing your project-management UI,
-            but it does NOT publish projects to every visitor.
+const $ = id => document.getElementById(id);
 
-            Your permanent public projects still belong in
-            projects.html and must be pushed to GitHub.
-        */
+const ui = {
+    grid: $("projects-grid"),
+    count: $("project-count"),
+    search: $("search-input"),
+    filter: $("language-filter"),
+    publicStatus: $("public-status"),
+    empty: $("empty-state"),
+    loginButton: $("admin-login-button"),
+    logoutButton: $("admin-logout-button"),
+    addButton: $("add-project-button"),
+    adminStatus: $("admin-status"),
+    loginForm: $("login-form"),
+    password: $("admin-password"),
+    projectForm: $("project-form"),
+    title: $("project-title"),
+    language: $("project-language"),
+    description: $("project-description"),
+    image: $("project-image"),
+    code: $("project-code"),
+    publishButton: $("publish-button")
+};
 
+function escapeHTML(value) {
+    return String(value ?? "").replace(/[&<>"']/g, char => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;"
+    })[char]);
+}
 
+function setStatus(element, message, type = "") {
+    element.textContent = message;
+    element.className = "status" + (type ? " " + type : "");
+}
 
-        /* =========================================================
-           GET PROJECTS
-        ========================================================== */
+function setAdminStatus(message) {
+    ui.adminStatus.textContent = message;
+}
 
-        function getProjects() {
+function normalizeLanguage(value) {
+    const language = String(value || "Other").trim();
+    const supported = [
+        "Python", "Java", "C++", "HTML",
+        "CSS", "JavaScript", "Other"
+    ];
+    return supported.includes(language) ? language : "Other";
+}
+
+function prismLanguage(language) {
+    return ({
+        "Python": "python",
+        "Java": "java",
+        "C++": "cpp",
+        "HTML": "markup",
+        "CSS": "css",
+        "JavaScript": "javascript"
+    })[language] || "none";
+}
+
+function safeImageURL(value) {
+    if (!value) return "";
+
+    try {
+        const url = new URL(value);
+
+        if (url.protocol === "https:" || url.protocol === "http:") {
+            return url.href;
+        }
+    } catch (_) {}
+
+    return "";
+}
+
+function headers(extra = {}) {
+    return {
+        "apikey": SUPABASE_PUBLISHABLE_KEY,
+        "Content-Type": "application/json",
+        ...extra
+    };
+}
+
+async function readResponse(response) {
+    const body = await response.text();
+    let data = null;
+
+    if (body) {
+        try {
+            data = JSON.parse(body);
+        } catch (_) {
+            data = { message: body };
+        }
+    }
+
+    if (!response.ok) {
+        throw new Error(
+            data?.message ||
+            data?.error ||
+            data?.hint ||
+            "HTTP " + response.status
+        );
+    }
+
+    return data;
+}
+
+async function databaseRequest(url, options = {}) {
+    const response = await fetch(url, {
+        ...options,
+        headers: {
+            ...headers(),
+            ...(options.headers || {})
+        }
+    });
+
+    return readResponse(response);
+}
+
+async function adminRequest(payload) {
+    if (!state.adminSignedIn || !state.adminPassword) {
+        throw new Error("Please sign in first.");
+    }
+
+    const response = await fetch(ADMIN_API, {
+        method: "POST",
+        headers: headers({
+            "Authorization": "Bearer " + SUPABASE_PUBLISHABLE_KEY
+        }),
+        body: JSON.stringify({
+            ...payload,
+            password: state.adminPassword
+        })
+    });
+
+    return readResponse(response);
+}
+
+function filteredProjects() {
+    const query = ui.search.value.trim().toLowerCase();
+    const language = ui.filter.value;
+
+    return state.projects.filter(project => {
+        const matchesLanguage =
+            language === "all" ||
+            normalizeLanguage(project.language) === language;
+
+        const searchable = [
+            project.title,
+            project.description,
+            project.language,
+            project.code
+        ].join(" ").toLowerCase();
+
+        return matchesLanguage && searchable.includes(query);
+    });
+}
+
+function createProjectCard(project, index) {
+    const card = document.createElement("article");
+    card.className = "project-card";
+
+    const title = escapeHTML(project.title || "Untitled Project");
+    const description = escapeHTML(
+        project.description || "No description provided."
+    );
+    const language = normalizeLanguage(project.language);
+    const grammar = prismLanguage(language);
+    const code = String(project.code || "");
+    const image = safeImageURL(project.image_url);
+
+    const media = image
+        ? `<img class="project-image" loading="lazy" alt="" src="${escapeHTML(image)}">`
+        : `<div class="project-image-placeholder" aria-hidden="true">AP_FL</div>`;
+
+    card.innerHTML = `
+        ${media}
+        <div class="project-content">
+            <div class="project-topline">
+                <span class="project-number">PROJECT #${index + 1}</span>
+                <span class="project-language">${escapeHTML(language)}</span>
+            </div>
+            <h3>${title}</h3>
+            <p class="project-description">${description}</p>
+            <details class="code-details">
+                <summary>View Source Code</summary>
+                <div class="code-box">
+                    <pre><code class="language-${grammar}">${escapeHTML(code)}</code></pre>
+                </div>
+                <div class="actions">
+                    <button class="btn btn-secondary copy-code-button" type="button">Copy Code</button>
+                </div>
+            </details>
+            <div class="actions admin-project-actions" hidden>
+                <button class="btn btn-danger delete-project-button" type="button">Remove Project</button>
+            </div>
+        </div>
+    `;
+
+    const copyButton = card.querySelector(".copy-code-button");
+
+    copyButton.addEventListener("click", async () => {
+        try {
+            await navigator.clipboard.writeText(code);
+            copyButton.textContent = "Copied!";
+        } catch (_) {
+            const area = document.createElement("textarea");
+            area.value = code;
+            area.style.position = "fixed";
+            area.style.opacity = "0";
+            document.body.appendChild(area);
+            area.select();
+
+            let copied = false;
 
             try {
+                copied = document.execCommand("copy");
+            } catch (_) {}
 
-                const saved =
-                    localStorage.getItem(
-                        STORAGE_KEY
-                    );
-
-
-                if (!saved) {
-
-                    return [];
-                }
-
-
-                const projects =
-                    JSON.parse(saved);
-
-
-                if (!Array.isArray(projects)) {
-
-                    return [];
-                }
-
-
-                return projects;
-
-            } catch (error) {
-
-                console.error(
-                    "Could not read project storage:",
-                    error
-                );
-
-
-                return [];
-            }
+            area.remove();
+            copyButton.textContent = copied ? "Copied!" : "Copy failed";
         }
 
+        setTimeout(() => {
+            copyButton.textContent = "Copy Code";
+        }, 1600);
+    });
 
+    const deleteButton = card.querySelector(".delete-project-button");
 
-        /* =========================================================
-           SAVE PROJECTS
-        ========================================================== */
-
-        function saveProjects(projects) {
-
-            localStorage.setItem(
-
-                STORAGE_KEY,
-
-                JSON.stringify(projects)
-            );
+    deleteButton.addEventListener("click", async () => {
+        if (!state.adminSignedIn) {
+            setAdminStatus("Please sign in again.");
+            return;
         }
 
-
-
-        /* =========================================================
-           LANGUAGE → PRISM CLASS
-        ========================================================== */
-
-        function prismLanguage(language) {
-
-            const map = {
-
-                "Python":
-                    "python",
-
-                "Java":
-                    "java",
-
-                "C++":
-                    "cpp",
-
-                "HTML":
-                    "markup",
-
-                "CSS":
-                    "css"
-
-            };
-
-
-            return map[language] || "none";
+        if (project.id == null) {
+            setAdminStatus("This project has no database ID.");
+            return;
         }
 
-
-
-        /* =========================================================
-           RENDER ALL PROJECTS
-        ========================================================== */
-
-        function renderProjects() {
-
-            const projects =
-                getProjects();
-
-
-            const container =
-                document.getElementById(
-                    "projectsList"
-                );
-
-
-            container.innerHTML = "";
-
-
-            /*
-                No fake PROJECT#1.
-
-                The FIRST REAL project added by you
-                becomes PROJECT#1.
-            */
-
-
-            if (
-                projects.length === 0
-            ) {
-
-                const empty =
-                    document.createElement(
-                        "div"
-                    );
-
-
-                empty.className =
-                    "empty-box";
-
-
-                empty.innerHTML = `
-
-                    <h2>
-                        No projects yet.
-                    </h2>
-
-                    <p>
-                        Your real projects will appear here
-                        as you add them.
-                    </p>
-
-                `;
-
-
-                container.appendChild(
-                    empty
-                );
-
-
-                return;
-            }
-
-
-
-            /*
-                Automatic numbering:
-
-                index 0 → PROJECT#1
-                index 1 → PROJECT#2
-                index 36 → PROJECT#37
-            */
-
-            projects.forEach(
-                function(project, index) {
-
-                    createProjectCard(
-                        project,
-                        index + 1,
-                        container
-                    );
-
-                }
-            );
-
-
-            /*
-                Apply syntax highlighting
-                after creating the code boxes.
-            */
-
-            if (
-                typeof Prism !== "undefined"
-            ) {
-
-                Prism.highlightAll();
-            }
+        if (!confirm(`Remove "${project.title}" from the public portfolio?`)) {
+            return;
         }
 
-
-
-        /* =========================================================
-           CREATE PROJECT CARD
-        ========================================================== */
-
-        function createProjectCard(
-            project,
-            projectNumber,
-            container
-        ) {
-
-            const card =
-                document.createElement(
-                    "article"
-                );
-
-
-            card.className =
-                "project-card";
-
-
-
-            /* PROJECT NUMBER */
-
-            const number =
-                document.createElement(
-                    "div"
-                );
-
-
-            number.className =
-                "project-number";
-
-
-            number.textContent =
-                "PROJECT#" +
-                projectNumber;
-
-
-            card.appendChild(
-                number
-            );
-
-
-
-            /* TITLE */
-
-            const title =
-                document.createElement(
-                    "h2"
-                );
-
-
-            title.className =
-                "project-title";
-
-
-            title.textContent =
-                project.title ||
-                "Untitled Project";
-
-
-            card.appendChild(
-                title
-            );
-
-
-
-            /* DESCRIPTION */
-
-            const description =
-                document.createElement(
-                    "p"
-                );
-
-
-            description.className =
-                "project-description";
-
-
-            description.textContent =
-                project.description ||
-                "";
-
-
-            card.appendChild(
-                description
-            );
-
-
-
-            /* =====================================================
-               PROGRAM PROJECT
-            ====================================================== */
-
-            if (
-                project.type ===
-                "program"
-            ) {
-
-                const language =
-                    document.createElement(
-                        "div"
-                    );
-
-
-                language.className =
-                    "language-tag";
-
-
-                language.textContent =
-                    project.language;
-
-
-                card.appendChild(
-                    language
-                );
-
-
-
-                const wrapper =
-                    document.createElement(
-                        "div"
-                    );
-
-
-                wrapper.className =
-                    "code-wrapper";
-
-
-
-                const header =
-                    document.createElement(
-                        "div"
-                    );
-
-
-                header.className =
-                    "code-header";
-
-
-                header.innerHTML = `
-
-                    <span>
-                        ${escapeHTML(project.language)}
-                    </span>
-
-                    <span>
-                        Code
-                    </span>
-
-                `;
-
-
-                wrapper.appendChild(
-                    header
-                );
-
-
-
-                const codeContent =
-                    document.createElement(
-                        "div"
-                    );
-
-
-                codeContent.className =
-                    "code-content";
-
-
-                const pre =
-                    document.createElement(
-                        "pre"
-                    );
-
-
-                const code =
-                    document.createElement(
-                        "code"
-                    );
-
-
-                code.className =
-                    "language-" +
-                    prismLanguage(
-                        project.language
-                    );
-
-
-                /*
-                    textContent prevents the code itself
-                    from being executed as HTML/JavaScript.
-                */
-
-                code.textContent =
-                    project.code || "";
-
-
-                pre.appendChild(
-                    code
-                );
-
-
-                codeContent.appendChild(
-                    pre
-                );
-
-
-                wrapper.appendChild(
-                    codeContent
-                );
-
-
-                card.appendChild(
-                    wrapper
-                );
-            }
-
-
-
-            /* =====================================================
-               PICTURE PROJECT
-            ====================================================== */
-
-            if (
-                project.type ===
-                "picture"
-            ) {
-
-                if (
-                    project.image
-                ) {
-
-                    const image =
-                        document.createElement(
-                            "img"
-                        );
-
-
-                    image.className =
-                        "project-image";
-
-
-                    image.src =
-                        project.image;
-
-
-                    image.alt =
-                        project.title ||
-                        "Project picture";
-
-
-                    card.appendChild(
-                        image
-                    );
-                }
-            }
-
-
-
-            container.appendChild(
-                card
-            );
-        }
-
-
-
-        /* =========================================================
-           HTML ESCAPE
-        ========================================================== */
-
-        function escapeHTML(value) {
-
-            return String(value)
-
-                .replace(
-                    /&/g,
-                    "&amp;"
-                )
-
-                .replace(
-                    /</g,
-                    "&lt;"
-                )
-
-                .replace(
-                    />/g,
-                    "&gt;"
-                )
-
-                .replace(
-                    /"/g,
-                    "&quot;"
-                )
-
-                .replace(
-                    /'/g,
-                    "&#039;"
-                );
-        }
-
-
-
-        /* =========================================================
-           OPEN ADMIN
-        ========================================================== */
-
-        function openAdmin() {
-
-            document.getElementById(
-                "adminOverlay"
-            ).style.display =
-                "block";
-
-
-            showOnly(
-                "passwordScreen"
-            );
-
-
-            document.getElementById(
-                "passwordInput"
-            ).value = "";
-
-
-            document.getElementById(
-                "passwordMessage"
-            ).textContent = "";
-        }
-
-
-
-        /* =========================================================
-           CLOSE ADMIN
-        ========================================================== */
-
-        function closeAdmin() {
-
-            document.getElementById(
-                "adminOverlay"
-            ).style.display =
-                "none";
-        }
-
-
-
-        /* =========================================================
-           SHOW ONE ADMIN SCREEN
-        ========================================================== */
-
-        function showOnly(screenID) {
-
-            const screens = [
-
-                "passwordScreen",
-
-                "adminMenu",
-
-                "programForm",
-
-                "pictureForm",
-
-                "manageArea"
-
-            ];
-
-
-            screens.forEach(
-                function(id) {
-
-                    document.getElementById(
-                        id
-                    ).style.display =
-                        "none";
-
-                }
-            );
-
-
-            document.getElementById(
-                screenID
-            ).style.display =
-                "block";
-        }
-
-
-
-        /* =========================================================
-           PASSWORD CHECK
-        ========================================================== */
-
-        function checkPassword() {
-
-            const entered =
-                document.getElementById(
-                    "passwordInput"
-                ).value;
-
-
-            const message =
-                document.getElementById(
-                    "passwordMessage"
-                );
-
-
-            if (
-                entered ===
-                ADMIN_PASSWORD
-            ) {
-
-                message.textContent =
-                    "";
-
-
-                showOnly(
-                    "adminMenu"
-                );
-
-            } else {
-
-                message.textContent =
-                    "Incorrect password.";
-
-
-                message.className =
-                    "message error";
-            }
-        }
-
-
-
-        /* =========================================================
-           LOGOUT
-        ========================================================== */
-
-        function logoutAdmin() {
-
-            document.getElementById(
-                "passwordInput"
-            ).value = "";
-
-
-            showOnly(
-                "passwordScreen"
-            );
-        }
-
-
-
-        /* =========================================================
-           RETURN TO ADMIN MENU
-        ========================================================== */
-
-        function returnToAdminMenu() {
-
-            showOnly(
-                "adminMenu"
-            );
-        }
-
-
-
-        /* =========================================================
-           OPEN PROGRAM FORM
-        ========================================================== */
-
-        function openProgramForm() {
-
-            showOnly(
-                "programForm"
-            );
-
-
-            document.getElementById(
-                "programMessage"
-            ).textContent = "";
-        }
-
-
-
-        /* =========================================================
-           OPEN PICTURE FORM
-        ========================================================== */
-
-        function openPictureForm() {
-
-            showOnly(
-                "pictureForm"
-            );
-
-
-            document.getElementById(
-                "pictureMessage"
-            ).textContent = "";
-        }
-
-
-
-        /* =========================================================
-           PUBLISH PROGRAM
-        ========================================================== */
-
-        function publishProgram() {
-
-            const title =
-                document.getElementById(
-                    "programTitle"
-                ).value.trim();
-
-
-            const description =
-                document.getElementById(
-                    "programDescription"
-                ).value.trim();
-
-
-            const language =
-                document.getElementById(
-                    "languageSelect"
-                ).value;
-
-
-            const code =
-                document.getElementById(
-                    "codeInput"
-                ).value;
-
-
-            const message =
-                document.getElementById(
-                    "programMessage"
-                );
-
-
-            if (
-                !title ||
-                !description ||
-                !code.trim()
-            ) {
-
-                message.textContent =
-                    "Please complete the title, description, and program.";
-
-
-                message.className =
-                    "message error";
-
-
-                return;
-            }
-
-
-
-            const projects =
-                getProjects();
-
-
-            projects.push({
-
-                type:
-                    "program",
-
-                title:
-                    title,
-
-                description:
-                    description,
-
-                language:
-                    language,
-
-                code:
-                    code,
-
-                createdAt:
-                    new Date().toISOString()
-
+        deleteButton.disabled = true;
+        deleteButton.textContent = "Removing...";
+
+        try {
+            await adminRequest({
+                action: "delete",
+                project_id: project.id
             });
 
-
-            saveProjects(
-                projects
+            state.projects = state.projects.filter(
+                item => item.id !== project.id
             );
-
 
             renderProjects();
+            setAdminStatus("Project removed from the shared portfolio.");
+        } catch (error) {
+            setAdminStatus("Removal failed: " + error.message);
+            deleteButton.disabled = false;
+            deleteButton.textContent = "Remove Project";
+        }
+    });
 
+    card.querySelector(".admin-project-actions").hidden =
+        !state.adminSignedIn;
 
-            const projectNumber =
-                projects.length;
+    if (window.Prism) {
+        Prism.highlightAllUnder(card);
+    }
 
+    return card;
+}
 
-            message.textContent =
-                "Published locally as PROJECT#" +
-                projectNumber +
-                ".";
+function renderProjects() {
+    const projects = filteredProjects();
+    ui.grid.replaceChildren();
 
+    projects.forEach((project, index) => {
+        ui.grid.appendChild(createProjectCard(project, index));
+    });
 
-            message.className =
-                "message success";
+    ui.count.textContent =
+        `${projects.length} project${projects.length === 1 ? "" : "s"}` +
+        (projects.length !== state.projects.length
+            ? ` shown (${state.projects.length} total)`
+            : "");
 
+    ui.empty.hidden = projects.length !== 0;
+}
 
-            clearProgramForm();
+async function loadProjects() {
+    if (state.loading) return;
 
+    state.loading = true;
+    setStatus(ui.publicStatus, "Loading shared projects...");
 
-            /*
-                Keep admin interface open
-                so you can add another project.
-            */
-
-            setTimeout(
-                function() {
-
-                    returnToAdminMenu();
-
-                },
-                700
+    try {
+        if (
+            !SUPABASE_PUBLISHABLE_KEY ||
+            SUPABASE_PUBLISHABLE_KEY === "PASTE_YOUR_PUBLISHABLE_KEY_HERE"
+        ) {
+            throw new Error(
+                "Add your Supabase publishable key in the configuration."
             );
         }
 
+        const url = PROJECTS_API +
+            "?select=id,title,language,description,code,image_url,created_at" +
+            "&order=created_at.asc";
 
+        const data = await databaseRequest(url);
 
-        /* =========================================================
-           PUBLISH PICTURE
-        ========================================================== */
-
-        function publishPicture() {
-
-            const title =
-                document.getElementById(
-                    "pictureTitle"
-                ).value.trim();
-
-
-            const description =
-                document.getElementById(
-                    "pictureDescription"
-                ).value.trim();
-
-
-            const input =
-                document.getElementById(
-                    "pictureInput"
-                );
-
-
-            const file =
-                input.files[0];
-
-
-            const message =
-                document.getElementById(
-                    "pictureMessage"
-                );
-
-
-            if (
-                !title ||
-                !description ||
-                !file
-            ) {
-
-                message.textContent =
-                    "Please complete the title, description, and picture.";
-
-
-                message.className =
-                    "message error";
-
-
-                return;
-            }
-
-
-
-            const reader =
-                new FileReader();
-
-
-            reader.onload =
-                function(event) {
-
-                    const projects =
-                        getProjects();
-
-
-                    projects.push({
-
-                        type:
-                            "picture",
-
-                        title:
-                            title,
-
-                        description:
-                            description,
-
-                        image:
-                            event.target.result,
-
-                        createdAt:
-                            new Date().toISOString()
-
-                    });
-
-
-                    saveProjects(
-                        projects
-                    );
-
-
-                    renderProjects();
-
-
-                    const projectNumber =
-                        projects.length;
-
-
-                    message.textContent =
-                        "Published locally as PROJECT#" +
-                        projectNumber +
-                        ".";
-
-
-                    message.className =
-                        "message success";
-
-
-                    clearPictureForm();
-
-
-                    setTimeout(
-                        function() {
-
-                            returnToAdminMenu();
-
-                        },
-                        700
-                    );
-                };
-
-
-            reader.onerror =
-                function() {
-
-                    message.textContent =
-                        "The picture could not be read.";
-
-                    message.className =
-                        "message error";
-                };
-
-
-            reader.readAsDataURL(
-                file
-            );
+        if (!Array.isArray(data)) {
+            throw new Error("The database did not return a project list.");
         }
 
-
-
-        /* =========================================================
-           CLEAR PROGRAM FORM
-        ========================================================== */
-
-        function clearProgramForm() {
-
-            document.getElementById(
-                "programTitle"
-            ).value = "";
-
-
-            document.getElementById(
-                "programDescription"
-            ).value = "";
-
-
-            document.getElementById(
-                "codeInput"
-            ).value = "";
-
-
-            document.getElementById(
-                "languageSelect"
-            ).value =
-                "Python";
-        }
-
-
-
-        /* =========================================================
-           CLEAR PICTURE FORM
-        ========================================================== */
-
-        function clearPictureForm() {
-
-            document.getElementById(
-                "pictureTitle"
-            ).value = "";
-
-
-            document.getElementById(
-                "pictureDescription"
-            ).value = "";
-
-
-            document.getElementById(
-                "pictureInput"
-            ).value = "";
-        }
-
-
-
-        /* =========================================================
-           OPEN MANAGE / REMOVE
-        ========================================================== */
-
-        function openManageArea() {
-
-            showOnly(
-                "manageArea"
-            );
-
-
-            renderManageList();
-        }
-
-
-
-        /* =========================================================
-           RENDER REMOVE LIST
-        ========================================================== */
-
-        function renderManageList() {
-
-            const projects =
-                getProjects();
-
-
-            const list =
-                document.getElementById(
-                    "manageList"
-                );
-
-
-            list.innerHTML = "";
-
-
-            if (
-                projects.length === 0
-            ) {
-
-                list.innerHTML = `
-
-                    <p style="color:#777;">
-                        There are no projects to remove.
-                    </p>
-
-                `;
-
-
-                return;
-            }
-
-
-
-            projects.forEach(
-                function(project, index) {
-
-                    const item =
-                        document.createElement(
-                            "div"
-                        );
-
-
-                    item.className =
-                        "manage-item";
-
-
-
-                    const information =
-                        document.createElement(
-                            "div"
-                        );
-
-
-                    information.className =
-                        "manage-info";
-
-
-                    const number =
-                        document.createElement(
-                            "div"
-                        );
-
-
-                    number.className =
-                        "manage-project-number";
-
-
-                    number.textContent =
-                        "PROJECT#" +
-                        (index + 1);
-
-
-                    const title =
-                        document.createElement(
-                            "div"
-                        );
-
-
-                    title.className =
-                        "manage-project-title";
-
-
-                    title.textContent =
-                        project.title ||
-                        "Untitled Project";
-
-
-                    information.appendChild(
-                        number
-                    );
-
-
-                    information.appendChild(
-                        title
-                    );
-
-
-
-                    const remove =
-                        document.createElement(
-                            "button"
-                        );
-
-
-                    remove.className =
-                        "remove-small";
-
-
-                    remove.textContent =
-                        "Remove";
-
-
-                    remove.onclick =
-                        function() {
-
-                            removeProject(
-                                index
-                            );
-
-                        };
-
-
-                    item.appendChild(
-                        information
-                    );
-
-
-                    item.appendChild(
-                        remove
-                    );
-
-
-                    list.appendChild(
-                        item
-                    );
-
-                }
-            );
-        }
-
-
-
-        /* =========================================================
-           REMOVE PROJECT
-        ========================================================== */
-
-        function removeProject(index) {
-
-            const projects =
-                getProjects();
-
-
-            const project =
-                projects[index];
-
-
-            if (!project) {
-
-                return;
-            }
-
-
-            const confirmed =
-                confirm(
-
-                    "Remove PROJECT#" +
-                    (index + 1) +
-                    " — " +
-                    project.title +
-                    "?"
-
-                );
-
-
-            if (!confirmed) {
-
-                return;
-            }
-
-
-            projects.splice(
-                index,
-                1
-            );
-
-
-            saveProjects(
-                projects
-            );
-
-
-            renderProjects();
-
-
-            renderManageList();
-
-
-            alert(
-                "Project removed from this browser."
-            );
-        }
-
-
-
-        /* =========================================================
-           ENTER KEY SUPPORT FOR PASSWORD
-        ========================================================== */
-
-        document
-            .getElementById(
-                "passwordInput"
-            )
-            .addEventListener(
-                "keydown",
-                function(event) {
-
-                    if (
-                        event.key ===
-                        "Enter"
-                    ) {
-
-                        checkPassword();
-                    }
-
-                }
-            );
-
-
-
-        /* =========================================================
-           INITIAL PAGE LOAD
-        ========================================================== */
-
+        state.projects = data;
         renderProjects();
 
-    </script>
+        setStatus(
+            ui.publicStatus,
+            "Projects loaded from the shared database.",
+            "success"
+        );
+    } catch (error) {
+        state.projects = [];
+        renderProjects();
 
+        setStatus(
+            ui.publicStatus,
+            "Could not load projects: " + error.message,
+            "error"
+        );
+    } finally {
+        state.loading = false;
+    }
+}
+
+function updateAdminUI() {
+    ui.loginButton.hidden = state.adminSignedIn;
+    ui.logoutButton.hidden = !state.adminSignedIn;
+    ui.addButton.hidden = !state.adminSignedIn;
+
+    document.querySelectorAll(".admin-project-actions").forEach(element => {
+        element.hidden = !state.adminSignedIn;
+    });
+}
+
+function signOutAdmin() {
+    state.adminPassword = "";
+    state.adminSignedIn = false;
+
+    ui.password.value = "";
+    ui.loginForm.hidden = true;
+    ui.projectForm.hidden = true;
+
+    updateAdminUI();
+    renderProjects();
+    setAdminStatus("Admin is signed out.");
+}
+
+ui.search.addEventListener("input", renderProjects);
+ui.filter.addEventListener("change", renderProjects);
+
+ui.loginButton.addEventListener("click", () => {
+    ui.loginForm.hidden = false;
+    ui.password.focus();
+});
+
+$("cancel-login-button").addEventListener("click", () => {
+    ui.loginForm.hidden = true;
+    ui.password.value = "";
+});
+
+ui.loginForm.addEventListener("submit", async event => {
+    event.preventDefault();
+
+    const password = ui.password.value;
+
+    if (!password) return;
+
+    setAdminStatus("Verifying password...");
+
+    try {
+        const response = await fetch(ADMIN_API, {
+            method: "POST",
+            headers: headers({
+                "Authorization": "Bearer " + SUPABASE_PUBLISHABLE_KEY
+            }),
+            body: JSON.stringify({
+                action: "verify",
+                password
+            })
+        });
+
+        const data = await readResponse(response);
+
+        if (data?.ok !== true) {
+            throw new Error(
+                data?.message || "The server did not confirm admin access."
+            );
+        }
+
+        state.adminPassword = password;
+        state.adminSignedIn = true;
+
+        ui.password.value = "";
+        ui.loginForm.hidden = true;
+
+        updateAdminUI();
+        renderProjects();
+
+        setAdminStatus("Signed in. You can now manage projects.");
+    } catch (error) {
+        state.adminPassword = "";
+        state.adminSignedIn = false;
+        updateAdminUI();
+
+        setAdminStatus("Login failed: " + error.message);
+    }
+});
+
+ui.logoutButton.addEventListener("click", signOutAdmin);
+
+ui.addButton.addEventListener("click", () => {
+    ui.projectForm.hidden = false;
+    ui.title.focus();
+});
+
+$("cancel-project-button").addEventListener("click", () => {
+    ui.projectForm.reset();
+    ui.projectForm.hidden = true;
+});
+
+ui.projectForm.addEventListener("submit", async event => {
+    event.preventDefault();
+
+    if (!state.adminSignedIn) {
+        setAdminStatus("Please sign in before publishing.");
+        return;
+    }
+
+    const title = ui.title.value.trim();
+    const description = ui.description.value.trim();
+    const code = ui.code.value;
+
+    if (!title || !description || !code.trim()) {
+        setAdminStatus("Complete the title, description, and code.");
+        return;
+    }
+
+    const image = ui.image.value.trim();
+
+    if (image && !safeImageURL(image)) {
+        setAdminStatus("The image URL must start with HTTP or HTTPS.");
+        return;
+    }
+
+    const project = {
+        title,
+        language: normalizeLanguage(ui.language.value),
+        description,
+        code,
+        image_url: image ? safeImageURL(image) : null,
+        type: "program"
+    };
+
+    ui.publishButton.disabled = true;
+    ui.publishButton.textContent = "Publishing...";
+
+    try {
+        await adminRequest({
+            action: "publish",
+            project
+        });
+
+        ui.projectForm.reset();
+        ui.projectForm.hidden = true;
+
+        await loadProjects();
+
+        setAdminStatus(
+            "Publish request completed. Check the public project list."
+        );
+    } catch (error) {
+        setAdminStatus("Publishing failed: " + error.message);
+    } finally {
+        ui.publishButton.disabled = false;
+        ui.publishButton.textContent = "Publish Project";
+    }
+});
+
+loadProjects();
+</script>
 </body>
-
 </html>
-```

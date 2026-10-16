@@ -1,0 +1,2 @@
+[functions.admin-projects]
+verify_jwt = false
