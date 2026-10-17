@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -93,7 +94,7 @@
             color: #111;
             padding: 60px;
             border-radius: 28px;
-            box-shadow: 0 25px 60px rgba(0,0,0,.35);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, .35);
         }
 
         .hero-box h1 {
@@ -146,175 +147,12 @@
             font-size: 17px;
         }
 
-        /* PROJECT PREVIEW */
-        .project-preview {
-            margin-top: 25px;
-            background: white;
-            color: #111;
-            padding: 30px;
-            border-radius: 18px;
-        }
-
-        .project-label {
-            font-size: 13px;
-            font-weight: 800;
-            letter-spacing: 2px;
-            color: #666;
-            margin-bottom: 8px;
-        }
-
-        .project-preview h3 {
-            font-size: 27px;
-            margin-bottom: 10px;
-        }
-
         /* FIND ME TEXT */
         .find-text {
             text-align: center;
             color: #999;
             margin-top: 60px;
             padding-bottom: 20px;
-        }
-
-        /* PLUS BUTTON */
-        .plus-button {
-            position: fixed;
-            right: 25px;
-            bottom: 25px;
-            width: 62px;
-            height: 62px;
-            border: none;
-            border-radius: 50%;
-            background: white;
-            color: #111;
-            font-size: 35px;
-            cursor: pointer;
-            z-index: 2000;
-            box-shadow: 0 15px 35px rgba(0,0,0,.45);
-            transition: .2s;
-        }
-
-        .plus-button:hover {
-            transform: scale(1.08);
-        }
-
-        /* ADMIN OVERLAY */
-        .overlay {
-            display: none;
-            position: fixed;
-            inset: 0;
-            z-index: 3000;
-            background: rgba(0,0,0,.78);
-            padding: 20px;
-            overflow-y: auto;
-        }
-
-        .admin-box {
-            width: 100%;
-            max-width: 760px;
-            margin: 35px auto;
-            background: white;
-            color: #111;
-            border-radius: 22px;
-            padding: 32px;
-        }
-
-        .admin-box h2 {
-            margin-bottom: 20px;
-        }
-
-        .mode-buttons {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            margin-bottom: 20px;
-        }
-
-        .mode-button {
-            padding: 16px;
-            border: 2px solid #111;
-            border-radius: 12px;
-            background: white;
-            color: #111;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .mode-button.active {
-            background: #111;
-            color: white;
-        }
-
-        label {
-            display: block;
-            margin: 15px 0 7px;
-            font-weight: bold;
-        }
-
-        input,
-        textarea,
-        select {
-            width: 100%;
-            padding: 14px;
-            border: 1px solid #bbb;
-            border-radius: 10px;
-            font: inherit;
-        }
-
-        textarea {
-            min-height: 180px;
-            resize: vertical;
-        }
-
-        #codeInput {
-            min-height: 350px;
-            font-family: Consolas, "Courier New", monospace;
-            font-size: 14px;
-            line-height: 1.5;
-            tab-size: 4;
-            white-space: pre;
-        }
-
-        .admin-actions {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            margin-top: 20px;
-        }
-
-        .admin-actions button {
-            padding: 12px 18px;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            font-weight: bold;
-        }
-
-        .publish {
-            background: #111;
-            color: white;
-        }
-
-        .close {
-            background: #ddd;
-            color: #111;
-        }
-
-        #programForm,
-        #pictureForm,
-        #modeChoice,
-        #loginForm {
-            display: none;
-        }
-
-        #modeChoice {
-            display: block;
-        }
-
-        .message {
-            margin-top: 12px;
-            font-weight: bold;
         }
 
         /* FOOTER */
@@ -340,14 +178,8 @@
             }
 
             .hero-box,
-            .section-box,
-            .admin-box {
+            .section-box {
                 padding: 27px;
-            }
-
-            .plus-button {
-                right: 18px;
-                bottom: 18px;
             }
         }
     </style>
@@ -368,10 +200,8 @@
         </div>
     </header>
 
-
     <!-- HOME -->
     <main>
-
         <section id="home" class="hero">
             <div class="container">
                 <div class="hero-box">
@@ -389,26 +219,21 @@
             </div>
         </section>
 
-
         <!-- ABOUT -->
         <section id="about">
             <div class="container">
-
                 <div class="section-box">
                     <h2 class="section-title">About Me</h2>
 
                     <p class="section-text">
                         I'm building my programming skills through real projects,
-                        practical software, automation, and web development.
+                        practical software,automation, and more.
                         This portfolio will grow as I create more work.
                     </p>
                 </div>
-
             </div>
         </section>
-
     </main>
-
 
     <!-- FREELANCING TEXT -->
     <div class="container">
@@ -418,514 +243,10 @@
         </p>
     </div>
 
-
     <!-- FOOTER -->
     <footer>
         <p>© 2026 AP_FL.com — Built by Affan</p>
     </footer>
-
-
-    <!-- PUBLIC PLUS BUTTON -->
-    <button class="plus-button" onclick="openAdmin()">+</button>
-
-
-    <!-- ADMIN SYSTEM -->
-    <div id="adminOverlay" class="overlay">
-
-        <div class="admin-box">
-
-            <h2>AP_FL Admin</h2>
-
-
-            <!-- LOGIN -->
-            <div id="loginForm" style="display:block;">
-
-                <label for="passwordInput">
-                    Admin Password
-                </label>
-
-                <input
-                    id="passwordInput"
-                    type="password"
-                    placeholder="Enter password"
-                >
-
-                <div class="admin-actions">
-
-                    <button class="publish" onclick="checkPassword()">
-                        Continue
-                    </button>
-
-                    <button class="close" onclick="closeAdmin()">
-                        Close
-                    </button>
-
-                </div>
-
-                <p id="loginMessage" class="message"></p>
-
-            </div>
-
-
-            <!-- MODE CHOICE -->
-            <div id="modeChoice">
-
-                <p style="margin-bottom:15px;">
-                    What do you want to add?
-                </p>
-
-                <div class="mode-buttons">
-
-                    <button
-                        class="mode-button"
-                        onclick="chooseMode('program')"
-                    >
-                        💻 PROGRAM
-                    </button>
-
-                    <button
-                        class="mode-button"
-                        onclick="chooseMode('picture')"
-                    >
-                        🖼️ PICTURE
-                    </button>
-
-                </div>
-
-                <button
-                    class="close"
-                    style="padding:12px 18px;border:none;border-radius:10px;cursor:pointer;"
-                    onclick="closeAdmin()"
-                >
-                    Close
-                </button>
-
-            </div>
-
-
-            <!-- PROGRAM FORM -->
-            <div id="programForm">
-
-                <h3>Add Programming Project</h3>
-
-                <label for="programTitle">
-                    Project Title
-                </label>
-
-                <input
-                    id="programTitle"
-                    type="text"
-                    placeholder="Example: Client Data Automation"
-                >
-
-
-                <label for="programDescription">
-                    Description
-                </label>
-
-                <textarea
-                    id="programDescription"
-                    placeholder="Describe this project..."
-                ></textarea>
-
-
-                <label for="languageSelect">
-                    Programming Language
-                </label>
-
-                <select id="languageSelect">
-
-                    <option value="Python">Python</option>
-                    <option value="Java">Java</option>
-                    <option value="C++">C++</option>
-                    <option value="HTML">HTML</option>
-                    <option value="CSS">CSS</option>
-
-                </select>
-
-
-                <label for="codeInput">
-                    Program
-                </label>
-
-                <textarea
-                    id="codeInput"
-                    placeholder="Paste your program here..."
-                    spellcheck="false"
-                ></textarea>
-
-
-                <div class="admin-actions">
-
-                    <button
-                        class="publish"
-                        onclick="publishProgram()"
-                    >
-                        Publish Project
-                    </button>
-
-                    <button
-                        class="close"
-                        onclick="goBackToModes()"
-                    >
-                        Back
-                    </button>
-
-                    <button
-                        class="close"
-                        onclick="closeAdmin()"
-                    >
-                        Close
-                    </button>
-
-                </div>
-
-            </div>
-
-
-            <!-- PICTURE FORM -->
-            <div id="pictureForm">
-
-                <h3>Add Picture Project</h3>
-
-                <label for="pictureTitle">
-                    Project Title
-                </label>
-
-                <input
-                    id="pictureTitle"
-                    type="text"
-                    placeholder="Example: Website Design"
-                >
-
-
-                <label for="pictureDescription">
-                    Description
-                </label>
-
-                <textarea
-                    id="pictureDescription"
-                    placeholder="Describe this project..."
-                ></textarea>
-
-
-                <label for="pictureInput">
-                    Picture
-                </label>
-
-                <input
-                    id="pictureInput"
-                    type="file"
-                    accept="image/*"
-                >
-
-
-                <div class="admin-actions">
-
-                    <button
-                        class="publish"
-                        onclick="publishPicture()"
-                    >
-                        Publish Project
-                    </button>
-
-                    <button
-                        class="close"
-                        onclick="goBackToModes()"
-                    >
-                        Back
-                    </button>
-
-                    <button
-                        class="close"
-                        onclick="closeAdmin()"
-                    >
-                        Close
-                    </button>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <script>
-
-        /* =========================
-           SETTINGS
-        ========================= */
-
-        const ADMIN_PASSWORD = "ChengChong123";
-
-        const STORAGE_KEY = "AP_FL_PROJECTS";
-
-
-        /* =========================
-           ADMIN OPEN / CLOSE
-        ========================= */
-
-        function openAdmin() {
-
-            document.getElementById("adminOverlay").style.display = "block";
-
-            document.getElementById("loginForm").style.display = "block";
-            document.getElementById("modeChoice").style.display = "none";
-            document.getElementById("programForm").style.display = "none";
-            document.getElementById("pictureForm").style.display = "none";
-
-            document.getElementById("passwordInput").value = "";
-            document.getElementById("loginMessage").textContent = "";
-        }
-
-
-        function closeAdmin() {
-            document.getElementById("adminOverlay").style.display = "none";
-        }
-
-
-        /* =========================
-           PASSWORD
-        ========================= */
-
-        function checkPassword() {
-
-            const entered =
-                document.getElementById("passwordInput").value;
-
-            const message =
-                document.getElementById("loginMessage");
-
-
-            if (entered === ADMIN_PASSWORD) {
-
-                document.getElementById("loginForm").style.display = "none";
-                document.getElementById("modeChoice").style.display = "block";
-
-                message.textContent = "";
-
-            } else {
-
-                message.textContent = "Incorrect password.";
-                message.style.color = "red";
-            }
-        }
-
-
-        /* =========================
-           MODE SELECTION
-        ========================= */
-
-        function chooseMode(mode) {
-
-            document.getElementById("modeChoice").style.display = "none";
-
-
-            if (mode === "program") {
-
-                document.getElementById("programForm").style.display = "block";
-
-            } else {
-
-                document.getElementById("pictureForm").style.display = "block";
-            }
-        }
-
-
-        function goBackToModes() {
-
-            document.getElementById("programForm").style.display = "none";
-            document.getElementById("pictureForm").style.display = "none";
-            document.getElementById("modeChoice").style.display = "block";
-        }
-
-
-        /* =========================
-           PROJECT STORAGE
-        ========================= */
-
-        function getProjects() {
-
-            return JSON.parse(
-                localStorage.getItem(STORAGE_KEY) || "[]"
-            );
-        }
-
-
-        function saveProjects(projects) {
-
-            localStorage.setItem(
-                STORAGE_KEY,
-                JSON.stringify(projects)
-            );
-        }
-
-
-        /* =========================
-           PROGRAM PUBLISH
-        ========================= */
-
-        function publishProgram() {
-
-            const title =
-                document.getElementById("programTitle").value.trim();
-
-            const description =
-                document.getElementById("programDescription").value.trim();
-
-            const language =
-                document.getElementById("languageSelect").value;
-
-            const code =
-                document.getElementById("codeInput").value;
-
-
-            if (!title || !description || !code.trim()) {
-
-                alert(
-                    "Please enter a title, description, and program."
-                );
-
-                return;
-            }
-
-
-            const projects = getProjects();
-
-
-            projects.push({
-
-                type: "program",
-
-                title: title,
-
-                description: description,
-
-                language: language,
-
-                code: code,
-
-                createdAt: new Date().toISOString()
-
-            });
-
-
-            saveProjects(projects);
-
-
-            alert(
-                "Published as PROJECT#" + (projects.length + 1)
-            );
-
-
-            clearProgramForm();
-
-            closeAdmin();
-        }
-
-
-        /* =========================
-           PICTURE PUBLISH
-        ========================= */
-
-        function publishPicture() {
-
-            const title =
-                document.getElementById("pictureTitle").value.trim();
-
-            const description =
-                document.getElementById("pictureDescription").value.trim();
-
-            const input =
-                document.getElementById("pictureInput");
-
-            const file =
-                input.files[0];
-
-
-            if (!title || !description || !file) {
-
-                alert(
-                    "Please enter a title, description, and picture."
-                );
-
-                return;
-            }
-
-
-            const reader = new FileReader();
-
-
-            reader.onload = function(event) {
-
-                const projects = getProjects();
-
-
-                projects.push({
-
-                    type: "picture",
-
-                    title: title,
-
-                    description: description,
-
-                    image: event.target.result,
-
-                    createdAt: new Date().toISOString()
-
-                });
-
-
-                saveProjects(projects);
-
-
-                alert(
-                    "Published as PROJECT#" + (projects.length + 1)
-                );
-
-
-                clearPictureForm();
-
-                closeAdmin();
-            };
-
-
-            reader.readAsDataURL(file);
-        }
-
-
-        /* =========================
-           CLEAR FORMS
-        ========================= */
-
-        function clearProgramForm() {
-
-            document.getElementById("programTitle").value = "";
-            document.getElementById("programDescription").value = "";
-            document.getElementById("codeInput").value = "";
-            document.getElementById("languageSelect").value = "Python";
-        }
-
-
-        function clearPictureForm() {
-
-            document.getElementById("pictureTitle").value = "";
-            document.getElementById("pictureDescription").value = "";
-            document.getElementById("pictureInput").value = "";
-        }
-
-
-        /*
-            This site stores projects in localStorage.
-
-            That means the project is saved in THIS browser/device.
-            For truly universal publishing that every client sees,
-            a database/backend will be needed later.
-        */
-
-    </script>
 
 </body>
 </html>
